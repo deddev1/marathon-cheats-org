@@ -52,13 +52,14 @@ export const brand = {
 
 	/**
 	 * Keyword system — primary drives titles; list feeds schema / light targeting.
-	 * Keep 5–8 terms.
 	 */
 	keywords: {
 		primary: 'the isle hacks',
 		list: [
 			'the isle hacks',
 			'the isle cheats',
+			'isle cheats',
+			'isle evrima',
 			'Isle ESP',
 			'Isle Aimbot',
 			'isle wallhack',

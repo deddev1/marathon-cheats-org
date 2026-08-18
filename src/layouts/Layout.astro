@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { productInfo, siteConfig } from '../data/site';
+import { productInfo, siteConfig, seoKeywords } from '../data/site';
 import { brandTheme, brandThemeInlineStyle, brandThemeRootCss } from '../data/brand-theme';
 import I18nHead from '../components/I18nHead.astro';
 import LocaleSuggest from '../components/LocaleSuggest.astro';
@@ -46,11 +46,13 @@ const {
 	pageId,
 	hreflangAlternates,
 	extraGraph = [],
-	keywords,
+	keywords: keywordsProp,
 	lcpImage,
 	lcpImageSrcSet,
 	lcpImageSizes = '100vw',
 } = Astro.props;
+
+const keywords = keywordsProp?.length ? keywordsProp : [...seoKeywords];
 
 const canonicalURL = buildCanonicalUrl(canonicalPath);
 const ogImageURL = new URL(ogImage, siteConfig.url).href;
