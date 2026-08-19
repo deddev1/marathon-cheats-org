@@ -50,16 +50,16 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 			{
 				h2: 'ESP & wallhack',
 				paragraphs: [
-					'See players, wild dinosaurs, bosses, and carcasses through walls with distance readouts.',
-					'Use filters so the overlay stays clear in high-traffic zones, high-traffic zones, and growth run chaos.',
+					'See players, enemy forces, bosses, and loot drops through walls with distance readouts.',
+					'Use filters so the overlay stays clear in contested zones, high-traffic zones, and extraction run chaos.',
 				],
-				list: ['Player boxes & distance', 'Carcass and nest markers', 'Boss and juvenile filters'],
+				list: ['Player boxes & distance', 'Carcass and exfil markers', 'Boss and juvenile filters'],
 			},
 			{
 				h2: 'Aimbot & soft aim',
 				paragraphs: [
 					'Aim help you can tune to feel natural.',
-					'Set FOV, smoothness, and bone priority per species before you spawn in.',
+					'Set FOV, smoothness, and bone priority per weapon before you drop in.',
 				],
 				list: ['Smooth aim strength', 'FOV and bone priority', 'Hotkeys mid-match'],
 			},
@@ -67,9 +67,9 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 				h2: 'Radar',
 				paragraphs: [
 					'A simple 2D radar for threats outside your view.',
-					'Spot flanks near nests and water without filling the whole screen.',
+					'Spot flanks near exfil and loot zones without filling the whole screen.',
 				],
-				list: ['Nearby enemy cues', 'Adjustable range', 'Works in herbivore & carnivore'],
+				list: ['Nearby enemy cues', 'Adjustable range', 'Works in PvP & PvE'],
 			},
 			{
 				h2: 'Explore related topics',
@@ -77,14 +77,14 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 					'Most {game} cheat sites cover ESP, aimbot, radar, setup, and status on separate pages. Use these guides next:',
 				],
 				list: [
-					'<a href="/isle-esp/">ESP & wallhack guide</a>',
-					'<a href="/isle-aimbot/">Aimbot & soft aim</a>',
-					'<a href="/isle-radar-hack/">2D radar overlay</a>',
+					'<a href="/marathon-esp/">ESP & wallhack guide</a>',
+					'<a href="/marathon-aimbot/">Aimbot & soft aim</a>',
+					'<a href="/marathon-radar-hack/">2D radar overlay</a>',
 					'<a href="/setup/">Setup guide</a>',
 					'<a href="/updates/">Live status</a>',
-					'<a href="/blog/">Isle Intel blog</a>',
-					'<a href="https://store.steampowered.com/app/376210/news/" target="_blank" rel="noopener noreferrer">Official Steam patch notes</a>',
-					'<a href="https://isle.fandom.com/wiki/The_Isle" target="_blank" rel="noopener noreferrer">The Isle Wiki (Fandom)</a>',
+					'<a href="/blog/">Marathon Intel blog</a>',
+					'<a href="https://store.steampowered.com/app/3065800/news/" target="_blank" rel="noopener noreferrer">Official Steam patch notes</a>',
+					'<a href="https://marathondb.gg/" target="_blank" rel="noopener noreferrer">Marathon Wiki</a>',
 				],
 			},
 			{
@@ -92,7 +92,7 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 				paragraphs: [
 					'We rebuild after big {game} or {antiCheat} patches.',
 					'Check Status before you play after a patch day.',
-					'Verify official changes on <a href="https://store.steampowered.com/app/376210/news/" target="_blank" rel="noopener noreferrer">Steam patch notes</a> and the <a href="https://isle.fandom.com/wiki/The_Isle" target="_blank" rel="noopener noreferrer">Isle Wiki</a> before you tune overlays.',
+					'Verify official changes on <a href="https://store.steampowered.com/app/3065800/news/" target="_blank" rel="noopener noreferrer">Steam patch notes</a> and the <a href="https://marathondb.gg/" target="_blank" rel="noopener noreferrer">Marathon Wiki</a> before you tune overlays.',
 				],
 				list: ['Status on the Status page', 'Setup guide included', 'Email support with your order ID'],
 			},
@@ -141,18 +141,18 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 		h1: 'Status',
 		intro: brandCopy.statusIntro,
 		ctaPrimary: brandCopy.ctaBuy,
-		ctaSecondary: 'The Isle Hacks overview',
+		ctaSecondary: 'Marathon Cheats overview',
 		ctaSecondaryHref: '/',
 		galleryTitle: 'In-game look',
 		sections: [
 			{
 				h2: 'Current status',
 				paragraphs: [
-					'As of 13 Aug 2026 the package is online for The Isle on Windows PC. We post a new note here when a game or Easy Anti-Cheat patch needs a rebuild.',
-					'If Status is green, you can session. If we are rebuilding, wait for the next note.',
+					'As of 13 Aug 2026 the package is online for Marathon on Windows PC. We post a new note here when a game or BattlEye patch needs a rebuild.',
+					'If Status is green, you can run. If we are rebuilding, wait for the next note.',
 				],
 				list: [
-					'Check this page before every session after a patch',
+					'Check this page before every run after a patch',
 					'Monthly and lifetime licenses get rebuilds while active',
 					'No cheat stays undetected forever — status first, then play',
 				],
@@ -174,7 +174,7 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 	hacks: page({
 		title: brandSeo.previewTitle,
 		description: brandSeo.previewDescription,
-		h1: 'The Isle Hacks',
+		h1: 'Marathon Cheats',
 		intro: brandCopy.previewIntro,
 		ctaPrimary: brandCopy.ctaBuy,
 		ctaSecondary: 'View features',
@@ -184,24 +184,24 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 			{
 				h2: 'What you get',
 				paragraphs: [
-					'One license for The Isle on Windows PC — built for herbivore and carnivore survival sessions.',
+					'One license for Marathon on Windows PC — built for PvP and PvE extraction runs.',
 				],
 				list: [
 					'ESP / wallhack with distance',
 					'Soft aim & aimbot profiles',
 					'2D radar for flanks',
-					'Easy Anti-Cheat rebuilds after patches',
+					'BattlEye rebuilds after patches',
 				],
 			},
 			{
-				h2: 'Built for The Isle sessions',
+				h2: 'Built for Marathon runs',
 				paragraphs: [
-					'Read players and wild dinosaurs before you push, mark carcasses worth the risk, and stay aware near nests and water. Tune soft aim per species for high-traffic zones and long-range ambushes.',
+					'Read runners and UESC forces before you push, mark loot drops worth the risk, and stay aware near exfil and loot zones. Tune soft aim per weapon for high-traffic zones and long-range ambushes.',
 				],
 				list: [
-					'<a href="/isle-esp/">ESP guide</a>',
-					'<a href="/isle-aimbot/">Aimbot controls</a>',
-					'<a href="/isle-radar-hack/">Radar overlay</a>',
+					'<a href="/marathon-esp/">ESP guide</a>',
+					'<a href="/marathon-aimbot/">Aimbot controls</a>',
+					'<a href="/marathon-radar-hack/">Radar overlay</a>',
 					'<a href="/updates/">Live status</a>',
 				],
 			},
@@ -216,25 +216,25 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 			},
 		],
 	}),
-	'isle-esp': page({
-		title: 'Isle ESP | {brand}',
+	'marathon-esp': page({
+		title: 'Marathon ESP | {brand}',
 		description:
-			'Isle ESP and wallhack for The Isle on Windows PC — player boxes, distance, carcass filters, and clear overlays in sessions.',
+			'Marathon ESP and wallhack for Marathon on Windows PC — player boxes, distance, loot filters, and clear overlays in runs.',
 		h1: 'ESP',
-		intro: 'See players and carcasses through walls during The Isle sessions. Part of the same {brand} license.',
+		intro: 'See players and loot drops through walls during Marathon runs. Part of the same {brand} license.',
 		ctaPrimary: brandCopy.ctaBuy,
-		ctaSecondary: 'The Isle Hacks overview',
+		ctaSecondary: 'Marathon Cheats overview',
 		ctaSecondaryHref: '/',
-		galleryTitle: 'ESP in session',
+		galleryTitle: 'ESP in run',
 		sections: [
 			{
 				h2: 'What ESP shows',
-				paragraphs: ['Boxes, distance, and filters for players, wild dinosaurs, bosses, and carcasses.'],
+				paragraphs: ['Boxes, distance, and filters for players, enemy forces, bosses, and loot drops.'],
 				list: ['Player ESP', 'Loot markers', 'Boss and juvenile filters'],
 			},
 			{
 				h2: 'When to use it',
-				paragraphs: ['Clear high-traffic zones, and growth runs without flooding the screen.'],
+				paragraphs: ['Clear high-traffic zones, and extraction runs without flooding the screen.'],
 				list: ['Tune opacity', 'Filter noise', 'Pair with radar'],
 			},
 			{
@@ -248,26 +248,26 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 			},
 		],
 	}),
-	'isle-aimbot': page({
-		title: 'Isle Aimbot | {brand}',
+	'marathon-aimbot': page({
+		title: 'Marathon Aimbot | {brand}',
 		description:
-			'Isle Aimbot and soft aim for The Isle on Windows PC — FOV, smoothness, and bone priority you can tune per species.',
+			'Marathon Aimbot and soft aim for Marathon on Windows PC — FOV, smoothness, and bone priority you can tune per weapon.',
 		h1: 'Aimbot',
-		intro: 'Soft aim and aim assist you can tune for The Isle. Included in the same {brand} license.',
+		intro: 'Soft aim and aim assist you can tune for Marathon. Included in the same {brand} license.',
 		ctaPrimary: brandCopy.ctaBuy,
-		ctaSecondary: 'The Isle Hacks overview',
+		ctaSecondary: 'Marathon Cheats overview',
 		ctaSecondaryHref: '/',
 		galleryTitle: 'Aimbot view',
 		sections: [
 			{
 				h2: 'Controls',
-				paragraphs: ['Set FOV, smoothness, and bone priority before you spawn in.'],
+				paragraphs: ['Set FOV, smoothness, and bone priority before you drop in.'],
 				list: ['Soft aim strength', 'Bone priority', 'Hotkeys mid-match'],
 			},
 			{
 				h2: 'Play styles',
-				paragraphs: ['Keep settings subtle for longer sessions. Raise strength only when you accept more risk.'],
-				list: ['Legit soft aim', 'Per-species profiles', 'Works with ESP'],
+				paragraphs: ['Keep settings subtle for longer runs. Raise strength only when you accept more risk.'],
+				list: ['Legit soft aim', 'Per-weapon profiles', 'Works with ESP'],
 			},
 			{
 				h2: 'Next steps',
@@ -281,26 +281,26 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 		],
 	}),
 	radar: page({
-		title: 'The Isle Radar | {brand}',
+		title: 'Marathon Radar | {brand}',
 		description:
-			'The Isle 2D radar for The Isle on Windows PC — flank cues near nests and water without filling the whole screen.',
+			'Marathon 2D radar for Marathon on Windows PC — flank cues near exfil and loot zones without filling the whole screen.',
 		h1: 'Radar',
 		intro: 'A simple 2D radar for threats outside your view. Included in the same {brand} license.',
 		ctaPrimary: brandCopy.ctaBuy,
-		ctaSecondary: 'The Isle Hacks overview',
+		ctaSecondary: 'Marathon Cheats overview',
 		ctaSecondaryHref: '/',
 		galleryTitle: 'Radar overlay',
 		sections: [
 			{
 				h2: 'What it shows',
-				paragraphs: ['Nearby enemy cues with adjustable range for herbivore and carnivore.'],
+				paragraphs: ['Nearby enemy cues with adjustable range for rival runners and UESC patrols.'],
 				list: ['Flank awareness', 'Nest approaches', 'Adjustable range'],
 			},
 			{
 				h2: 'With ESP',
 				paragraphs: ['Use radar for threats you cannot see yet. Use ESP when you push.'],
 				list: [
-					'<a href="/isle-esp/">ESP guide</a>',
+					'<a href="/marathon-esp/">ESP guide</a>',
 					'<a href="/">Full product</a>',
 					'<a href="/pricing/">Store</a>',
 				],

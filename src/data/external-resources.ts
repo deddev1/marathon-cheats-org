@@ -15,16 +15,16 @@ export type GuideCta = {
 /** Canonical outbound URLs — single source for CTAs, pills, and resource blocks. */
 export const externalUrls = {
 	steam: brand.gameUrl,
-	steamNews: 'https://store.steampowered.com/app/376210/news/',
-	officialSite: 'https://www.survivetheisle.com/',
-	wiki: 'https://isle.fandom.com/wiki/The_Isle',
-	steamCommunity: 'https://steamcommunity.com/app/376210',
+	steamNews: 'https://store.steampowered.com/app/3065800/news/',
+	officialSite: 'https://www.bungie.net/7/en/Marathon',
+	wiki: 'https://marathondb.gg/',
+	steamCommunity: 'https://steamcommunity.com/app/3065800',
 } as const;
 
 /** Authoritative third-party guides — cite official game sources for readers and search engines. */
 export const externalResources: ExternalResource[] = [
 	{
-		label: 'The Isle on Steam',
+		label: 'Marathon on Steam',
 		href: externalUrls.steam,
 		note: 'Official store page, system requirements, and player reviews.',
 	},
@@ -34,14 +34,14 @@ export const externalResources: ExternalResource[] = [
 		note: 'Read official update posts before you change your loadout.',
 	},
 	{
-		label: 'Official The Isle website',
+		label: 'Official Marathon website',
 		href: externalUrls.officialSite,
-		note: 'Game overview from Afterthought LLC.',
+		note: 'Game overview from Bungie.',
 	},
 	{
-		label: 'The Isle Wiki (Fandom)',
+		label: 'Marathon Wiki (Fandom)',
 		href: externalUrls.wiki,
-		note: 'Dinosaur stats, maps, and survival mechanics.',
+		note: 'Maps, runners, loot, and extraction mechanics.',
 	},
 	{
 		label: 'Steam Community hub',
@@ -52,9 +52,9 @@ export const externalResources: ExternalResource[] = [
 
 /** Compact above-the-fold guide links for blogs and page banners. */
 export const featuredGuidePills: GuideCta[] = [
-	{ label: 'The Isle on Steam', href: externalUrls.steam },
+	{ label: 'Marathon on Steam', href: externalUrls.steam },
 	{ label: 'Official patch notes', href: externalUrls.steamNews },
-	{ label: 'The Isle Wiki', href: externalUrls.wiki },
+	{ label: 'Marathon Wiki', href: externalUrls.wiki },
 ];
 
 /**
@@ -64,25 +64,25 @@ export const featuredGuidePills: GuideCta[] = [
 export const externalSecondaryByPageId: Partial<Record<PageId, GuideCta>> = {
 	features: { label: 'Official patch notes', href: externalUrls.steamNews },
 	updates: { label: 'Steam patch notes', href: externalUrls.steamNews },
-	hacks: { label: 'The Isle Wiki', href: externalUrls.wiki },
-	'isle-esp': { label: 'The Isle Wiki', href: externalUrls.wiki },
-	'isle-aimbot': { label: 'The Isle Wiki', href: externalUrls.wiki },
-	radar: { label: 'The Isle Wiki', href: externalUrls.wiki },
+	hacks: { label: 'Marathon Wiki', href: externalUrls.wiki },
+	'marathon-esp': { label: 'Marathon Wiki', href: externalUrls.wiki },
+	'marathon-aimbot': { label: 'Marathon Wiki', href: externalUrls.wiki },
+	radar: { label: 'Marathon Wiki', href: externalUrls.wiki },
 	setup: { label: 'Official game site', href: externalUrls.officialSite },
 	support: { label: 'Steam Community', href: externalUrls.steamCommunity },
-	faq: { label: 'The Isle Wiki', href: externalUrls.wiki },
+	faq: { label: 'Marathon Wiki', href: externalUrls.wiki },
 	undetected: { label: 'Steam patch notes', href: externalUrls.steamNews },
-	wallhack: { label: 'The Isle Wiki', href: externalUrls.wiki },
-	eac: { label: 'Steam patch notes', href: externalUrls.steamNews },
-	'cheats-2026': { label: 'The Isle on Steam', href: externalUrls.steam },
+	wallhack: { label: 'Marathon Wiki', href: externalUrls.wiki },
+	battleye: { label: 'Steam patch notes', href: externalUrls.steamNews },
+	'cheats-2026': { label: 'Marathon on Steam', href: externalUrls.steam },
 	'cheat-download': { label: 'Official game site', href: externalUrls.officialSite },
-	'mod-menu': { label: 'The Isle Wiki', href: externalUrls.wiki },
-	'soft-aim': { label: 'The Isle Wiki', href: externalUrls.wiki },
+	'mod-menu': { label: 'Marathon Wiki', href: externalUrls.wiki },
+	'soft-aim': { label: 'Marathon Wiki', href: externalUrls.wiki },
 	'best-cheats': { label: 'Steam Community', href: externalUrls.steamCommunity },
-	'aimbot-hack': { label: 'The Isle Wiki', href: externalUrls.wiki },
-	'esp-hack': { label: 'The Isle Wiki', href: externalUrls.wiki },
+	'aimbot-hack': { label: 'Marathon Wiki', href: externalUrls.wiki },
+	'esp-hack': { label: 'Marathon Wiki', href: externalUrls.wiki },
 	'unlock-all': { label: 'Official game site', href: externalUrls.officialSite },
-	pricing: { label: 'The Isle on Steam', href: externalUrls.steam },
+	pricing: { label: 'Marathon on Steam', href: externalUrls.steam },
 };
 
 export function getExternalSecondaryCta(pageId: PageId): GuideCta | undefined {

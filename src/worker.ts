@@ -10,15 +10,21 @@ export interface Env {
 	ASSETS: Fetcher;
 }
 
-const CANONICAL_ORIGIN = 'https://theislehacks.org';
-const CANONICAL_HOST = 'theislehacks.org';
+const CANONICAL_ORIGIN = 'https://marathoncheats.org';
+const CANONICAL_HOST = 'marathoncheats.org';
 const WWW_HOST = `www.${CANONICAL_HOST}`;
 
 const LEGACY_HOSTS = new Set([
-	'bestislecheats.com',
-	'www.bestislecheats.com',
+	'bestmarathoncheats.com',
+	'www.bestmarathoncheats.com',
+	'marathoncheat.org',
+	'www.marathoncheat.org',
+	'theislehacks.org',
+	'www.theislehacks.org',
 	'theislehack.org',
 	'www.theislehack.org',
+	'bestislecheats.com',
+	'www.bestislecheats.com',
 ]);
 
 /** /sitemap.xml and /sitemap-*.xml — must stay application/xml for Google Search Console. */

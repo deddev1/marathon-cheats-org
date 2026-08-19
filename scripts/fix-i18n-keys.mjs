@@ -8,19 +8,19 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.resolve(ROOT, '..', 'amansand');
 
 const UI_REPLACEMENTS = [
-	['The Isle Hacks', 'The Isle Hacks'],
-	['the isle hacks', 'the isle hacks'],
-	['The Isle Hacks', 'The Isle Hacks'],
-	['The Isle', 'The Isle'],
-	['The Isle', 'The Isle'],
-	['Call of Duty', 'The Isle'],
-	['The Isle PC', 'The Isle PC'],
-	['for The Isle', 'for The Isle'],
-	['The Isle ', 'The Isle '],
-	['isle ', 'isle '],
-	['Easy Anti-Cheat maintenance', 'Easy Anti-Cheat maintenance'],
-	['Easy Anti-Cheat', 'Easy Anti-Cheat'],
-	['Easy Anti-Cheat', 'Easy Anti-Cheat'],
+	['Marathon Cheats', 'Marathon Cheats'],
+	['marathon cheats', 'marathon cheats'],
+	['Marathon Cheats', 'Marathon Cheats'],
+	['Marathon', 'Marathon'],
+	['Marathon', 'Marathon'],
+	['Call of Duty', 'Marathon'],
+	['Marathon PC', 'Marathon PC'],
+	['for Marathon', 'for Marathon'],
+	['Marathon ', 'Marathon '],
+	['marathon ', 'marathon '],
+	['BattlEye maintenance', 'BattlEye maintenance'],
+	['BattlEye', 'BattlEye'],
+	['BattlEye', 'BattlEye'],
 	['operatorEsp', 'dinoEsp'],
 	['extractFight', 'ambushFight'],
 	['alMazrah', 'survivalIsland'],
@@ -30,12 +30,12 @@ const UI_REPLACEMENTS = [
 	['Operator', 'Player'],
 	['Al Mazrah', 'Verdansk'],
 	['Verdansk', 'Verdansk'],
-	['growth run', 'growth run'],
+	['loot run', 'loot run'],
 	['extract', 'extract'],
-	['theislehacks.org', 'theislehacks.org'],
-	['Trucos The Isle', 'Trucos The Isle'],
-	['Triches The Isle', 'Triches The Isle'],
-	['Cheats The Isle', 'Cheats The Isle'],
+	['marathoncheats.org', 'marathoncheats.org'],
+	['Trucos Marathon', 'Trucos Marathon'],
+	['Triches Marathon', 'Triches Marathon'],
+	['Cheats Marathon', 'Cheats Marathon'],
 ];
 
 function apply(content) {
@@ -54,16 +54,16 @@ for (const file of ['ui-strings-part1.mjs', 'ui-strings-part2.mjs']) {
 
 // Fix pages-en eac key
 let pagesEn = await readFile(path.join(ROOT, 'scripts/i18n-data/pages-en.mjs'), 'utf8');
-pagesEn = pagesEn.replace(/\teac: \{/, "\t'eac': {");
-pagesEn = pagesEn.replace(/The Isle The Isle/g, 'The Isle');
-pagesEn = pagesEn.replace(/for The Isle The Isle/g, 'for The Isle');
+pagesEn = pagesEn.replace(/\teac: \{/, "\t'battleye': {");
+pagesEn = pagesEn.replace(/Marathon Marathon/g, 'Marathon');
+pagesEn = pagesEn.replace(/for Marathon Marathon/g, 'for Marathon');
 await writeFile(path.join(ROOT, 'scripts/i18n-data/pages-en.mjs'), pagesEn);
 
 // Fix pages-i18n
 let pagesI18n = await readFile(path.join(ROOT, 'scripts/i18n-data/pages-i18n.mjs'), 'utf8');
 pagesI18n = apply(pagesI18n);
-pagesI18n = pagesI18n.replace(/'eac'/g, "'eac'");
-pagesI18n = pagesI18n.replace(/eac:/g, "'eac':");
+pagesI18n = pagesI18n.replace(/'battleye'/g, "'battleye'");
+pagesI18n = pagesI18n.replace(/eac:/g, "'battleye':");
 await writeFile(path.join(ROOT, 'scripts/i18n-data/pages-i18n.mjs'), pagesI18n);
 
 // Fix generate-i18n pages count

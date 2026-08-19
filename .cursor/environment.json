@@ -1,10 +1,10 @@
 {
-  "name": "The Isle Hacks",
+  "name": "Marathon Cheats",
   "install": "npm ci && npm run build",
   "start": "npm run localhost",
   "ports": [
     {
-      "name": "The Isle Hacks site",
+      "name": "Marathon Cheats site",
       "port": 5173
     }
   ],

@@ -1,11 +1,11 @@
 {
-  "name": "The Isle Hacks",
-  "short_name": "Isle Hacks",
-  "description": "Undetected the isle hacks — ESP, aimbot, and radar for PC",
+  "name": "Marathon Cheats",
+  "short_name": "Marathon Cheats",
+  "description": "Undetected marathon cheats — ESP, aimbot, and radar for PC",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#080b08",
-  "theme_color": "#080b08",
+  "background_color": "#0a0c10",
+  "theme_color": "#0a0c10",
   "icons": [
     {
       "src": "/favicon.png",

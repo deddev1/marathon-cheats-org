@@ -6,39 +6,39 @@ export const LOCALES = [
 ];
 
 export const PAGE_IDS = [
-	'home', 'isle-esp', 'isle-aimbot', 'features', 'pricing', 'setup',
-	'updates', 'faq', 'support', 'undetected', 'wallhack', 'radar', 'eac',
+	'home', 'marathon-esp', 'marathon-aimbot', 'features', 'pricing', 'setup',
+	'updates', 'faq', 'support', 'undetected', 'wallhack', 'radar', 'battleye',
 	'cheats-2026', 'hacks', 'cheat-download', 'mod-menu', 'soft-aim', 'best-cheats',
 	'aimbot-hack', 'esp-hack', 'unlock-all', 'privacy', 'refund', 'terms',
 ];
 
-/** Hero image per page — simple the isle hacks keyword filenames. */
+/** Hero image per page — simple marathon cheats keyword filenames. */
 export const HERO_IMAGES = {
-	home: '/images/isle-hacks-esp.webp',
-	'isle-esp': '/images/isle-hacks-radar.webp',
-	'isle-aimbot': '/images/isle-hacks-aimbot.webp',
-	features: '/images/isle-hacks-aimbot-view.webp',
-	pricing: '/images/isle-hacks-session.webp',
-	setup: '/images/isle-hacks-radar.webp',
-	updates: '/images/isle-hacks-esp.webp',
-	faq: '/images/isle-hacks-aimbot-view.webp',
-	support: '/images/isle-hacks-session.webp',
-	undetected: '/images/isle-hacks-wallhack.webp',
-	wallhack: '/images/isle-hacks-wallhack.webp',
-	radar: '/images/isle-hacks-radar.webp',
-	eac: '/images/isle-hacks-aimbot.webp',
-	'cheats-2026': '/images/isle-hacks-esp.webp',
-	hacks: '/images/isle-hacks-session.webp',
-	'cheat-download': '/images/isle-hacks-session.webp',
-	'mod-menu': '/images/isle-hacks-radar.webp',
-	'soft-aim': '/images/isle-hacks-aimbot-view.webp',
-	'best-cheats': '/images/isle-hacks-esp.webp',
-	'aimbot-hack': '/images/isle-hacks-aimbot-view.webp',
-	'esp-hack': '/images/isle-hacks-wallhack.webp',
-	'unlock-all': '/images/isle-hacks-radar.webp',
-	privacy: '/images/isle-hacks-aimbot.webp',
-	refund: '/images/isle-hacks-session.webp',
-	terms: '/images/isle-hacks-aimbot-view.webp',
+	home: '/images/marathon-cheats-esp.webp',
+	'marathon-esp': '/images/marathon-cheats-radar.webp',
+	'marathon-aimbot': '/images/marathon-cheats-aimbot.webp',
+	features: '/images/marathon-cheats-aimbot-view.webp',
+	pricing: '/images/marathon-cheats-run.webp',
+	setup: '/images/marathon-cheats-radar.webp',
+	updates: '/images/marathon-cheats-esp.webp',
+	faq: '/images/marathon-cheats-aimbot-view.webp',
+	support: '/images/marathon-cheats-run.webp',
+	undetected: '/images/marathon-cheats-wallhack.webp',
+	wallhack: '/images/marathon-cheats-wallhack.webp',
+	radar: '/images/marathon-cheats-radar.webp',
+	battleye: '/images/marathon-cheats-aimbot.webp',
+	'cheats-2026': '/images/marathon-cheats-esp.webp',
+	hacks: '/images/marathon-cheats-run.webp',
+	'cheat-download': '/images/marathon-cheats-run.webp',
+	'mod-menu': '/images/marathon-cheats-radar.webp',
+	'soft-aim': '/images/marathon-cheats-aimbot-view.webp',
+	'best-cheats': '/images/marathon-cheats-esp.webp',
+	'aimbot-hack': '/images/marathon-cheats-aimbot-view.webp',
+	'esp-hack': '/images/marathon-cheats-wallhack.webp',
+	'unlock-all': '/images/marathon-cheats-radar.webp',
+	privacy: '/images/marathon-cheats-aimbot.webp',
+	refund: '/images/marathon-cheats-run.webp',
+	terms: '/images/marathon-cheats-aimbot-view.webp',
 };
 
 export const TS_HEADER = `import type { LocaleCode } from './locales';
@@ -70,7 +70,7 @@ export type LocaleUi = {
 \t\theaderArt: string; hacksPackage: string; ambushFight: string; battleRoyale: string; survivalIsland: string;
 \t};
 };
-export type PageId = 'home' | 'isle-esp' | 'isle-aimbot' | 'features' | 'pricing' | 'setup' | 'updates' | 'faq' | 'support' | 'undetected' | 'wallhack' | 'radar' | 'eac' | 'cheats-2026' | 'hacks' | 'cheat-download' | 'mod-menu' | 'soft-aim' | 'best-cheats' | 'aimbot-hack' | 'esp-hack' | 'unlock-all' | 'privacy' | 'refund' | 'terms';
+export type PageId = 'home' | 'marathon-esp' | 'marathon-aimbot' | 'features' | 'pricing' | 'setup' | 'updates' | 'faq' | 'support' | 'undetected' | 'wallhack' | 'radar' | 'battleye' | 'cheats-2026' | 'hacks' | 'cheat-download' | 'mod-menu' | 'soft-aim' | 'best-cheats' | 'aimbot-hack' | 'esp-hack' | 'unlock-all' | 'privacy' | 'refund' | 'terms';
 `;
 
 /** Clamp meta strings to SEO limits without ugly ellipsis. */
@@ -101,7 +101,7 @@ export function stripZadeyoFromMeta(text) {
 		.replace(/\s*Zadeyo delivery\.?/gi, ' instant digital delivery.')
 		.replace(/\s*and Zadeyo delivery\.?/gi, ' and instant digital delivery.')
 		.replace(/\|\s*Instant Zadeyo Delivery/g, '| Instant Digital Delivery')
-		.replace(/Buy on Zadeyo/g, 'Buy The Isle Hacks')
+		.replace(/Buy on Zadeyo/g, 'Buy Marathon Cheats')
 		.replace(/\s{2,}/g, ' ')
 		.trim();
 }
@@ -124,11 +124,13 @@ export function section(h2, ...args) {
 /** Authoritative external citation helpers (open in new tab). */
 export const EXT = {
 	activision:
-		'<a href="https://store.steampowered.com/app/376210/The_Isle/" target="_blank" rel="noopener noreferrer">The Isle</a>',
-	isle:
-		'<a href="https://store.steampowered.com/app/376210/The_Isle/" target="_blank" rel="noopener noreferrer">The Isle</a>',
+		'<a href="https://store.steampowered.com/app/3065800/Marathon/" target="_blank" rel="noopener noreferrer">Marathon</a>',
+	marathon:
+		'<a href="https://store.steampowered.com/app/3065800/Marathon/" target="_blank" rel="noopener noreferrer">Marathon</a>',
 	status:
-		'<a href="https://store.steampowered.com/app/376210/The_Isle/" target="_blank" rel="noopener noreferrer">The Isle on Steam</a>',
+		'<a href="https://store.steampowered.com/app/3065800/Marathon/" target="_blank" rel="noopener noreferrer">Marathon on Steam</a>',
 	eac:
-		'<a href="https://www.easy.ac/" target="_blank" rel="noopener noreferrer">Easy Anti-Cheat</a>',
+		'<a href="https://www.battleye.com/" target="_blank" rel="noopener noreferrer">BattlEye</a>',
+	battleye:
+		'<a href="https://www.battleye.com/" target="_blank" rel="noopener noreferrer">BattlEye</a>',
 };

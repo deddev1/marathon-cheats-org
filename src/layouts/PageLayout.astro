@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { getUi } from '../data/i18n';
 import { getLocalizedPath, resolvePageContextFromPath, type PageId } from '../data/i18n/routing';
-import { isleImages } from '../data/isle';
+import { marathonImages } from '../data/marathon';
 import {
 	heroPreloadSrc,
 	heroSizes,
@@ -54,9 +54,9 @@ const {
 	heading,
 	intro,
 	eyebrow,
-	heroImage = isleImages.hero,
+	heroImage = marathonImages.hero,
 	heroAlt,
-	gallery = isleImages.product.slice(0, 3),
+	gallery = marathonImages.product.slice(0, 3),
 	galleryTitle,
 	ctaPrimary,
 	ctaSecondary,
@@ -74,7 +74,7 @@ const t = getT(locale);
 const resolvedHeroAlt =
 	(heroAlt && heroAlt.trim()) ||
 	t('images.hero') ||
-	`${siteConfig.name} — The Isle ESP and aimbot`;
+	`${siteConfig.name} — The Marathon ESP and aimbot`;
 const resolvedGalleryTitle = galleryTitle ?? t('common.inGameLook');
 
 function resolvePageId(path: string): PageId | undefined {
@@ -102,9 +102,9 @@ const breadcrumbs = [
 ];
 
 const useHomeHero =
-	heroImage === isleImages.hero ||
+	heroImage === marathonImages.hero ||
 	heroImage === siteConfig.defaultOgImage ||
-	heroImage.includes('isle-hacks-hero');
+	heroImage.includes('marathon-cheats-hero');
 ---
 
 <Layout

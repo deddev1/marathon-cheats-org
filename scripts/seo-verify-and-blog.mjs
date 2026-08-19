@@ -16,9 +16,9 @@ const bad = [
 	'Activision',
 	'soft aim, and .',
 	'ESP, Soft Aim,',
-	'best-isle-hacks',
-	'isle-esp-hack',
-	'isle-aimbot-hack',
+	'best-marathon-cheats',
+	'marathon-esp-hack',
+	'marathon-aimbot-hack',
 ];
 console.log('--- pages-en leftovers ---');
 for (const b of bad) {
@@ -37,10 +37,10 @@ for (const b of [
 	'vehicles before',
 	'Controllers',
 	'Battle Pass',
-	'REasy Anti-Cheat',
+	'RBattlEye',
 	'soft aim, and .',
-	'best-isle-hacks',
-	'isle-esp-hack',
+	'best-marathon-cheats',
+	'marathon-esp-hack',
 ]) {
 	const n = en.split(b).length - 1;
 	if (n) console.log(`${b}: ${n}`);
@@ -51,26 +51,26 @@ const reps = [
 	['V-Bucks', 'growth points'],
 	['Item Shop', 'in-game store'],
 	['Battle Pass', 'patch cycle progression'],
-	['FNCS', 'The Isle community event'],
+	['FNCS', 'Marathon community event'],
 	['Hammer AR', 'M4A1'],
 	['mythics', 'meta guns'],
-	['island codes', 'practice server sessions maps'],
+	['island codes', 'practice server runs maps'],
 	['Creative 1v1s', 'aim training'],
 	['creative 1v1s', 'aim training'],
 	['Epic health', 'Battlestate status'],
-	['Epic terms', 'The Isle team terms'],
-	["Epic's Easy Anti-Cheat", 'Easy Anti-Cheat'],
-	['Epic patch', 'The Isle patch'],
+	['Epic terms', 'Bungie terms'],
+	["Epic's BattlEye", 'BattlEye'],
+	['Epic patch', 'Marathon patch'],
 	['EliteFN', 'a Fortnite cheat shop'],
 	['GhostWare', 'a slim cheat vendor'],
 	['CheatVault', 'another cheat shop'],
-	['/isle-aimbot-hack/', '/isle-aimbot/'],
-	['/isle-esp-hack/', '/isle-esp/'],
-	['/best-isle-hacks/', '/'],
-	['best the isle hacks', 'the isle hacks'],
+	['/marathon-aimbot-hack/', '/marathon-aimbot/'],
+	['/marathon-esp-hack/', '/marathon-esp/'],
+	['/best-marathon-cheats/', '/'],
+	['best marathon cheats', 'marathon cheats'],
 	['hot drops', 'hot spawns'],
 	['ranked grinders', 'session grinders'],
-	['before Ranked', 'before a session'],
+	['before Ranked', 'before a run'],
 ];
 let s = blog;
 let n = 0;

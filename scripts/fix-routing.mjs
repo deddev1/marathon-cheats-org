@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Rebuild routing.ts and constants.mjs from clea The Isle source. */
+/** Rebuild routing.ts and constants.mjs from clea Marathon source. */
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -13,43 +13,43 @@ const REMOVE_IDS = [
 ];
 
 const REPLACEMENTS = [
-	['isle-esp', 'isle-esp'],
-	['isle-aimbot', 'isle-aimbot'],
-	['eac', 'eac'],
-	['undetected-isle-hacks', 'undetected-isle-hacks'],
-	['isle-wallhack', 'isle-wallhack'],
-	['isle-radar-hack', 'isle-radar-hack'],
-	['isle-hacks-2026', 'isle-hacks-2026'],
-	['eac-bypass', 'eac-bypass'],
-	['theislehacks.org', 'theislehacks.org'],
-	['trucos-isla', 'trucos-isla'],
-	['triche-isla', 'triche-isla'],
-	['the-isle-hacks', 'the-isle-hacks'],
-	['cheats-isla', 'cheats-isla'],
-	['trucchi-isla', 'trucchi-isla'],
-	['cheaty-isla', 'cheaty-isla'],
-	['chity-isla', 'chity-isla'],
-	['chitov-isla', 'chitov-isla'],
-	['chitiv-isla', 'chitiv-isla'],
-	['cheatow-isla', 'cheatow-isla'],
-	['hile-isla', 'hile-isla'],
-	['isle-hile', 'isle-hile'],
-	['isle-esp-chity', 'isle-esp-chity'],
-	['isle-aimbot-chity', 'isle-aimbot-chity'],
-	['unentdeckte-the-isle-hacks', 'unentdeckte-the-isle-hacks'],
-	['cheats-isla-indetectaveis', 'cheats-isla-indetectaveis'],
-	['trucchi-isla-indetectabili', 'trucchi-isla-indetectabili'],
-	['niewykrywalne-cheats-isla', 'niewykrywalne-cheats-isla'],
-	['nedecektiruemye-chity-isla', 'nedecektiruemye-chity-isla'],
-	['tespit-edilemeyen-isle-hileleri', 'tespit-edilemeyen-isle-hileleri'],
-	['nedecektovani-chity-isla', 'nedecektovani-chity-isla'],
-	['cheats-isla-nedetectabile', 'cheats-isla-nedetectabile'],
-	['basta-the-isle-hacks', 'basta-the-isle-hacks'],
-	['eac-bypass-trucos-isla', 'eac-bypass-trucos-isla'],
-	['eac-bypass-triche-isla', 'eac-bypass-triche-isla'],
-	['eac-bypass-cheats-isla', 'eac-bypass-cheats-isla'],
-	['eac-bypass-chity-isla', 'eac-bypass-chity-isla'],
-	['eac-bypass-isle', 'eac-bypass'],
+	['marathon-esp', 'marathon-esp'],
+	['marathon-aimbot', 'marathon-aimbot'],
+	['battleye', 'battleye'],
+	['undetected-marathon-cheats', 'undetected-marathon-cheats'],
+	['marathon-wallhack', 'marathon-wallhack'],
+	['marathon-radar-hack', 'marathon-radar-hack'],
+	['marathon-cheats-2026', 'marathon-cheats-2026'],
+	['battleye-bypass', 'battleye-bypass'],
+	['marathoncheats.org', 'marathoncheats.org'],
+	['trucos-marathon', 'trucos-marathon'],
+	['triche-marathon', 'triche-marathon'],
+	['marathon-cheats', 'marathon-cheats'],
+	['cheats-marathon', 'cheats-marathon'],
+	['trucchi-marathon', 'trucchi-marathon'],
+	['cheaty-marathon', 'cheaty-marathon'],
+	['chity-marathon', 'chity-marathon'],
+	['chitov-marathon', 'chitov-marathon'],
+	['chitiv-marathon', 'chitiv-marathon'],
+	['cheatow-marathon', 'cheatow-marathon'],
+	['hile-marathon', 'hile-marathon'],
+	['marathon-hile', 'marathon-hile'],
+	['marathon-esp-chity', 'marathon-esp-chity'],
+	['marathon-aimbot-chity', 'marathon-aimbot-chity'],
+	['unentdeckte-marathon-cheats', 'unentdeckte-marathon-cheats'],
+	['cheats-marathon-indetectaveis', 'cheats-marathon-indetectaveis'],
+	['trucchi-marathon-indetectabili', 'trucchi-marathon-indetectabili'],
+	['niewykrywalne-cheats-marathon', 'niewykrywalne-cheats-marathon'],
+	['nedecektiruemye-chity-marathon', 'nedecektiruemye-chity-marathon'],
+	['tespit-edilemeyen-marathon-hileleri', 'tespit-edilemeyen-marathon-hileleri'],
+	['nedecektovani-chity-marathon', 'nedecektovani-chity-marathon'],
+	['cheats-marathon-nedetectabile', 'cheats-marathon-nedetectabile'],
+	['basta-marathon-cheats', 'basta-marathon-cheats'],
+	['battleye-bypass-trucos-marathon', 'battleye-bypass-trucos-marathon'],
+	['battleye-bypass-triche-marathon', 'battleye-bypass-triche-marathon'],
+	['battleye-bypass-cheats-marathon', 'battleye-bypass-cheats-marathon'],
+	['battleye-bypass-chity-marathon', 'battleye-bypass-chity-marathon'],
+	['battleye-bypass-marathon', 'battleye-bypass'],
 ];
 
 function apply(content) {
@@ -78,31 +78,31 @@ async function fixRouting() {
 	content = apply(content);
 	for (const id of REMOVE_IDS) content = removePageBlocks(content, id);
 	// Fix eac key in englishPaths
-	content = content.replace(/\teac: '/, "\t'eac': '");
+	content = content.replace(/\teac: '/, "\t'battleye': '");
 	await writeFile(path.join(ROOT, 'src/data/i18n/routing.ts'), content);
 	console.log('Fixed routing.ts');
 }
 
 async function fixConstants() {
-	const heroImages = `/** Hero image per page topic — keyword-rich the-isle-hacks paths. */
+	const heroImages = `/** Hero image per page topic — keyword-rich marathon-cheats paths. */
 export const HERO_IMAGES = {
-	home: '/images/the-isle-hacks-hero.webp',
-	'isle-esp': '/images/the-isle-hacks-esp-wallhack.webp',
-	'isle-aimbot': '/images/the-isle-hacks-aimbot-combat.webp',
-	features: '/images/the-isle-hacks-package.webp',
-	pricing: '/images/the-isle-hacks-cover.webp',
-	setup: '/images/isle-loadout-builder.webp',
-	updates: '/images/isle-header-art.webp',
-	faq: '/images/isle-pack-fight.webp',
-	support: '/images/the-isle-hacks-package.webp',
-	undetected: '/images/isle-survival-game-combat.webp',
-	wallhack: '/images/the-isle-hacks-esp-wallhack.webp',
-	radar: '/images/isle-player-esp.webp',
-	'eac': '/images/isle-reboot-van-fight.webp',
-	'cheats-2026': '/images/the-isle-hacks-hero.webp',
-	privacy: '/images/the-isle-hacks-aimbot-combat.webp',
-	refund: '/images/the-isle-hacks-cover.webp',
-	terms: '/images/the-isle-hacks-package.webp',
+	home: '/images/the-marathon-cheats-hero.webp',
+	'marathon-esp': '/images/the-marathon-cheats-esp-wallhack.webp',
+	'marathon-aimbot': '/images/the-marathon-cheats-aimbot-combat.webp',
+	features: '/images/marathon-cheats-package.webp',
+	pricing: '/images/marathon-cheats-cover.webp',
+	setup: '/images/marathon-loadout-builder.webp',
+	updates: '/images/marathon-header-art.webp',
+	faq: '/images/marathon-pack-fight.webp',
+	support: '/images/marathon-cheats-package.webp',
+	undetected: '/images/marathon-survival-game-combat.webp',
+	wallhack: '/images/the-marathon-cheats-esp-wallhack.webp',
+	radar: '/images/marathon-player-esp.webp',
+	'battleye': '/images/marathon-reboot-van-fight.webp',
+	'cheats-2026': '/images/the-marathon-cheats-hero.webp',
+	privacy: '/images/the-marathon-cheats-aimbot-combat.webp',
+	refund: '/images/marathon-cheats-cover.webp',
+	terms: '/images/marathon-cheats-package.webp',
 };`;
 
 	let content = await readFile(path.join(SRC, 'scripts/i18n-data/constants.mjs'), 'utf8');
@@ -112,12 +112,12 @@ export const HERO_IMAGES = {
 	}
 	content = content.replace(
 		/export const PAGE_IDS = \[[\s\S]*?\];/,
-		`export const PAGE_IDS = [\n\t'home', 'isle-esp', 'isle-aimbot', 'features', 'pricing', 'setup',\n\t'updates', 'faq', 'support', 'undetected', 'wallhack', 'radar', 'eac',\n\t'cheats-2026', 'privacy', 'refund', 'terms',\n];`,
+		`export const PAGE_IDS = [\n\t'home', 'marathon-esp', 'marathon-aimbot', 'features', 'pricing', 'setup',\n\t'updates', 'faq', 'support', 'undetected', 'wallhack', 'radar', 'battleye',\n\t'cheats-2026', 'privacy', 'refund', 'terms',\n];`,
 	);
 	content = content.replace(/\/\*\* Hero image[\s\S]*?};/, heroImages);
 	content = content.replace(
 		/export type PageId = [^;]+;/,
-		"export type PageId = 'home' | 'isle-esp' | 'isle-aimbot' | 'features' | 'pricing' | 'setup' | 'updates' | 'faq' | 'support' | 'undetected' | 'wallhack' | 'radar' | 'eac' | 'cheats-2026' | 'privacy' | 'refund' | 'terms';",
+		"export type PageId = 'home' | 'marathon-esp' | 'marathon-aimbot' | 'features' | 'pricing' | 'setup' | 'updates' | 'faq' | 'support' | 'undetected' | 'wallhack' | 'radar' | 'battleye' | 'cheats-2026' | 'privacy' | 'refund' | 'terms';",
 	);
 	content = content.replace(/operatorEsp/g, 'dinoEsp');
 	content = content.replace(/extractFight/g, 'ambushFight');

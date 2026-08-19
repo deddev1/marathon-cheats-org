@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Completes the-isle-hacks SEO audit: add missing pages, fix leftovers, strip Zadeyo from meta.
+ * Completes marathon-cheats SEO audit: add missing pages, fix leftovers, strip Zadeyo from meta.
  * Run: node scripts/complete-seo-audit.mjs
  */
 import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
@@ -11,70 +11,70 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const NODE = 'C:\\Program Files\\nodejs\\node.exe';
 
 const EXTRA_PAGES = [
-	{ id: 'hacks', dir: 'the-isle-hacks', pageId: 'hacks' },
-	{ id: 'cheat-download', dir: 'isle-hack-download', pageId: 'cheat-download' },
-	{ id: 'mod-menu', dir: 'isle-mod-menu', pageId: 'mod-menu' },
-	{ id: 'soft-aim', dir: 'isle-soft-aim', pageId: 'soft-aim' },
-	{ id: 'best-cheats', dir: 'best-isle-hacks', pageId: 'best-cheats' },
-	{ id: 'aimbot-hack', dir: 'isle-aimbot-hack', pageId: 'aimbot-hack' },
-	{ id: 'esp-hack', dir: 'isle-esp-hack', pageId: 'esp-hack' },
-	{ id: 'unlock-all', dir: 'isle-unlock-all', pageId: 'unlock-all' },
+	{ id: 'hacks', dir: 'marathon-cheats', pageId: 'hacks' },
+	{ id: 'cheat-download', dir: 'marathon-cheat-download', pageId: 'cheat-download' },
+	{ id: 'mod-menu', dir: 'marathon-mod-menu', pageId: 'mod-menu' },
+	{ id: 'soft-aim', dir: 'marathon-soft-aim', pageId: 'soft-aim' },
+	{ id: 'best-cheats', dir: 'best-marathon-cheats', pageId: 'best-cheats' },
+	{ id: 'aimbot-hack', dir: 'marathon-aimbot-hack', pageId: 'aimbot-hack' },
+	{ id: 'esp-hack', dir: 'marathon-esp-hack', pageId: 'esp-hack' },
+	{ id: 'unlock-all', dir: 'marathon-unlock-all', pageId: 'unlock-all' },
 ];
 
 const GLOBAL_REPLACEMENTS = [
-	[/isle-isle/g, 'isle'],
-	[/eac-bypass-isle/g, 'eac-bypass'],
-	[/The Isle/g, 'The Isle'],
-	[/The Isle/g, 'The Isle'],
-	[/Call of Duty/g, 'The Isle'],
-	[/The Isle Wallhack/g, 'The Isle Wallhack'],
-	[/The Isle Radar Hack/g, 'The Isle Radar Hack'],
-	[/The Isle Cheat Features/g, 'The Isle Cheat Features'],
-	[/The Isle Cheat Pricing/g, 'The Isle Cheat Pricing'],
-	[/The Isle Cheat Setup/g, 'The Isle Cheat Setup'],
-	[/The Isle Cheat Status/g, 'The Isle Cheat Status'],
-	[/The Isle Cheat Support/g, 'The Isle Cheat Support'],
-	[/The Isle pack fight/g, 'The Isle pack fight'],
-	[/The Isle pack builder/g, 'The Isle loadout builder'],
-	[/The Isle store header/g, 'The Isle header'],
-	[/The Isle wasteland combat/g, 'The Isle battle royale combat'],
-	[/The Isle loadout builder/g, 'The Isle loadout builder'],
-	[/The Isle pricing/g, 'The Isle pricing'],
-	[/The Isle Easy Anti-Cheat/g, 'The Isle Easy Anti-Cheat'],
-	[/on The Isle/g, 'on The Isle'],
-	[/for The Isle/g, 'for The Isle'],
-	[/The Isle guides/g, 'The Isle guides'],
-	[/The Isle guide/g, 'The Isle guide'],
-	[/The Isle hileleri/g, 'The Isle hileleri'],
-	[/The Isle hile/g, 'The Isle hile'],
-	[/The Isle hileleri/g, 'The Isle hileleri'],
-	[/cheatów The Isle/g, 'cheatów The Isle'],
-	[/cheat The Isle/g, 'cheat The Isle'],
-	[/cheats The Isle/g, 'cheats The Isle'],
-	[/trucos The Isle/g, 'trucos The Isle'],
-	[/triche The Isle/g, 'triche The Isle'],
-	[/trucchi The Isle/g, 'trucchi The Isle'],
-	[/Wallhack The Isle/g, 'The Isle Wallhack'],
-	[/cheat The Isle undetected/g, 'cheat The Isle undetected'],
-	[/cheats The Isle undetected/g, 'cheats The Isle undetected'],
+	[/marathon-marathon/g, 'marathon'],
+	[/battleye-bypass-marathon/g, 'battleye-bypass'],
+	[/Marathon/g, 'Marathon'],
+	[/Marathon/g, 'Marathon'],
+	[/Call of Duty/g, 'Marathon'],
+	[/Marathon Wallhack/g, 'Marathon Wallhack'],
+	[/Marathon Radar Hack/g, 'Marathon Radar Hack'],
+	[/Marathon Cheat Features/g, 'Marathon Cheat Features'],
+	[/Marathon Cheat Pricing/g, 'Marathon Cheat Pricing'],
+	[/Marathon Cheat Setup/g, 'Marathon Cheat Setup'],
+	[/Marathon Cheat Status/g, 'Marathon Cheat Status'],
+	[/Marathon Cheat Support/g, 'Marathon Cheat Support'],
+	[/Marathon pack fight/g, 'Marathon pack fight'],
+	[/Marathon pack builder/g, 'Marathon loadout builder'],
+	[/Marathon store header/g, 'Marathon header'],
+	[/Marathon wasteland combat/g, 'Marathon battle royale combat'],
+	[/Marathon loadout builder/g, 'Marathon loadout builder'],
+	[/Marathon pricing/g, 'Marathon pricing'],
+	[/Marathon BattlEye/g, 'Marathon BattlEye'],
+	[/on Marathon/g, 'on Marathon'],
+	[/for Marathon/g, 'for Marathon'],
+	[/Marathon guides/g, 'Marathon guides'],
+	[/Marathon guide/g, 'Marathon guide'],
+	[/Marathon hileleri/g, 'Marathon hileleri'],
+	[/Marathon hile/g, 'Marathon hile'],
+	[/Marathon hileleri/g, 'Marathon hileleri'],
+	[/cheatów Marathon/g, 'cheatów Marathon'],
+	[/cheat Marathon/g, 'cheat Marathon'],
+	[/cheats Marathon/g, 'cheats Marathon'],
+	[/trucos Marathon/g, 'trucos Marathon'],
+	[/triche Marathon/g, 'triche Marathon'],
+	[/trucchi Marathon/g, 'trucchi Marathon'],
+	[/Wallhack Marathon/g, 'Marathon Wallhack'],
+	[/cheat Marathon undetected/g, 'cheat Marathon undetected'],
+	[/cheats Marathon undetected/g, 'cheats Marathon undetected'],
 	[/Verdansk beams/g, 'long-range AR beams'],
-	[/growth run room clears/g, 'close-quarters room clears'],
-	[/Verdansk and Urzikstan/g, 'Verdansk and growth run'],
-	[/Verdansk, Urzikstan/g, 'Verdansk, growth run'],
-	[/session and growth run/g, 'session and growth run'],
+	[/loot run room clears/g, 'close-quarters room clears'],
+	[/Verdansk and Urzikstan/g, 'Verdansk and loot run'],
+	[/Verdansk, Urzikstan/g, 'Verdansk, loot run'],
+	[/session and loot run/g, 'session and loot run'],
 	[/Activision's anti-cheat/g, "Epic Games' anti-cheat"],
 	[/Activision anti-cheat/g, 'Epic Games anti-cheat'],
 	[/Activision ships/g, 'Epic Games ships'],
 	[/Activision security/g, 'Epic Games security'],
 	[/Activision bans/g, 'Epic Games bans'],
 	[/Activision/g, 'Epic Games'],
-	[/eac/gi, 'eac'],
-	[/Easy Anti-Cheat/g, 'Easy Anti-Cheat'],
-	[/the-isle-hacks/g, 'the-isle-hacks'],
-	[/the-isle/g, 'isle'],
-	[/Undetected Wallhack for Call of Duty/g, 'Undetected Wallhack for The Isle'],
+	[/eac/gi, 'battleye'],
+	[/BattlEye/g, 'BattlEye'],
+	[/marathon-cheats/g, 'marathon-cheats'],
+	[/the-marathon/g, 'marathon'],
+	[/Undetected Wallhack for Call of Duty/g, 'Undetected Wallhack for Marathon'],
 	[/How ESP wallhack, radar, and Aimbot rebuild after Call of Duty anti-cheat/g,
-		'How ESP wallhack, radar, and Aimbot rebuild after The Isle anti-cheat'],
+		'How ESP wallhack, radar, and Aimbot rebuild after Marathon anti-cheat'],
 ];
 
 /** Remove Zadeyo from meta description/title strings only */
@@ -90,7 +90,7 @@ function stripZadeyoFromMeta(text) {
 		.replace(/\s*Zadeyo delivery\.?/gi, 'instant digital delivery.')
 		.replace(/\s*and Zadeyo delivery\.?/gi, ' and instant digital delivery.')
 		.replace(/\|\s*Instant Zadeyo Delivery/g, '| Instant Digital Delivery')
-		.replace(/Buy on Zadeyo/g, 'Buy The Isle Hacks')
+		.replace(/Buy on Zadeyo/g, 'Buy Marathon Cheats')
 		.replace(/\s{2,}/g, ' ')
 		.trim();
 }
@@ -169,38 +169,38 @@ import LocalizedPage from '../../components/LocalizedPage.astro';
 async function fixLocalesBlogUi() {
 	const file = path.join(ROOT, 'src', 'data', 'i18n', 'locales.ts');
 	let content = await readFile(file, 'utf8');
-	content = content.replace(/The Isle guides/g, 'The Isle guides');
-	content = content.replace(/The Isle guide/g, 'The Isle guide');
-	content = content.replace(/The Isle hileleri/g, 'The Isle hileleri');
-	content = content.replace(/The Isle hile/g, 'The Isle hile');
-	content = content.replace(/cheat The Isle/g, 'cheat The Isle');
-	content = content.replace(/cheats The Isle/g, 'cheats The Isle');
-	content = content.replace(/trucos The Isle/g, 'trucos The Isle');
-	content = content.replace(/triche The Isle/g, 'triche The Isle');
-	content = content.replace(/trucchi The Isle/g, 'trucchi The Isle');
-	content = content.replace(/cheatów The Isle/g, 'cheatów The Isle');
-	content = content.replace(/читов The Isle/g, 'читов The Isle');
-	content = content.replace(/читів The Isle/g, 'читів The Isle');
-	content = content.replace(/The Isleチート/g, 'The Isleチート');
-	content = content.replace(/The Isle 치트/g, 'The Isle 치트');
-	content = content.replace(/The Isle作弊/g, 'The Isle作弊');
-	content = content.replace(/The Isle rehberleri/g, 'The Isle rehberleri');
-	content = content.replace(/The Isle gidsen/g, 'The Isle gidsen');
-	content = content.replace(/The Isle průvodce/g, 'The Isle průvodce');
-	content = content.replace(/The Isle guider/g, 'The Isle guider');
-	content = content.replace(/The Isle related/g, 'The Isle related');
-	content = content.replace(/The Isle ガイド/g, 'The Isle ガイド');
-	content = content.replace(/The Isle 가이드/g, 'The Isle 가이드');
-	content = content.replace(/The Isle指南/g, 'The Isle指南');
-	content = content.replace(/The Isle गाइड/g, 'The Isle गाइड');
-	content = content.replace(/The Isle panduan/g, 'The Isle panduan');
-	content = content.replace(/The Isle คู่มือ/g, 'The Isle คู่มือ');
-	content = content.replace(/The Isle hướng dẫn/g, 'The Isle hướng dẫn');
+	content = content.replace(/Marathon guides/g, 'Marathon guides');
+	content = content.replace(/Marathon guide/g, 'Marathon guide');
+	content = content.replace(/Marathon hileleri/g, 'Marathon hileleri');
+	content = content.replace(/Marathon hile/g, 'Marathon hile');
+	content = content.replace(/cheat Marathon/g, 'cheat Marathon');
+	content = content.replace(/cheats Marathon/g, 'cheats Marathon');
+	content = content.replace(/trucos Marathon/g, 'trucos Marathon');
+	content = content.replace(/triche Marathon/g, 'triche Marathon');
+	content = content.replace(/trucchi Marathon/g, 'trucchi Marathon');
+	content = content.replace(/cheatów Marathon/g, 'cheatów Marathon');
+	content = content.replace(/читов Marathon/g, 'читов Marathon');
+	content = content.replace(/читів Marathon/g, 'читів Marathon');
+	content = content.replace(/Marathonチート/g, 'Marathonチート');
+	content = content.replace(/Marathon 치트/g, 'Marathon 치트');
+	content = content.replace(/Marathon作弊/g, 'Marathon作弊');
+	content = content.replace(/Marathon rehberleri/g, 'Marathon rehberleri');
+	content = content.replace(/Marathon gidsen/g, 'Marathon gidsen');
+	content = content.replace(/Marathon průvodce/g, 'Marathon průvodce');
+	content = content.replace(/Marathon guider/g, 'Marathon guider');
+	content = content.replace(/Marathon related/g, 'Marathon related');
+	content = content.replace(/Marathon ガイド/g, 'Marathon ガイド');
+	content = content.replace(/Marathon 가이드/g, 'Marathon 가이드');
+	content = content.replace(/Marathon指南/g, 'Marathon指南');
+	content = content.replace(/Marathon गाइड/g, 'Marathon गाइड');
+	content = content.replace(/Marathon panduan/g, 'Marathon panduan');
+	content = content.replace(/Marathon คู่มือ/g, 'Marathon คู่มือ');
+	content = content.replace(/Marathon hướng dẫn/g, 'Marathon hướng dẫn');
 	await writeFile(file, content, 'utf8');
 	console.log('Fixed locales.ts blogUi');
 }
 
-console.log('=== The Isle Hacks SEO completion ===\n');
+console.log('=== Marathon Cheats SEO completion ===\n');
 await applyGlobalFixes();
 await createExtraPages();
 await fixLocalesBlogUi();

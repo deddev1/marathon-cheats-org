@@ -17,8 +17,8 @@ for (const id of REMOVE) {
 	const re = new RegExp(`\\t'?${id.replace(/-/g, '\\-')}'?: \\{[\\s\\S]*?\\},\\n`, 'g');
 	content = content.replace(re, '');
 }
-// Fix eac-bypass slugs that got double-replaced
-content = content.replace(/eac-bypass-bypass/g, 'eac-bypass');
-content = content.replace(/eac-bypass-trucos-isla/g, 'eac-bypass-trucos-isla');
+// Fix battleye-bypass slugs that got double-replaced
+content = content.replace(/battleye-bypass-bypass/g, 'battleye-bypass');
+content = content.replace(/battleye-bypass-trucos-marathon/g, 'battleye-bypass-trucos-marathon');
 await writeFile(file, content);
 console.log('Cleaned routing.ts localizedSlugs');
