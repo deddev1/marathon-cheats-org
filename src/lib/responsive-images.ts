@@ -38,7 +38,7 @@ export function contentSrcSet(baseSrc: string): string | undefined {
 }
 
 /**
- * Homepage / banner hero — wide banner (~3.15:1); LCP src is the 1024w WebP variant.
+ * Homepage / banner hero — 16:9 source; LCP src is the 1024w WebP variant.
  */
 export const heroResponsive: ResponsiveWidth[] = [
 	{ src: '/images/marathon-cheats-hero-640w.webp', width: 640 },

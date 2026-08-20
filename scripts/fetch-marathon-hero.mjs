@@ -3,12 +3,12 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const HERO_URL =
-	'https://boqgsoiwnpbisvrxulbe.supabase.co/storage/v1/object/public/marathon/Screenshot%202026-08-19%20174006.png';
+	'https://boqgsoiwnpbisvrxulbe.supabase.co/storage/v1/object/public/marathon/ChatGPT%20Image%20Aug%2019,%202026,%2005_51_32%20PM.png';
 const imagesDir = path.resolve('public/images');
 const HERO_WEBP = { quality: 82, effort: 6, smartSubsample: true };
 
-/** Match homepage hero bar — preserve source aspect ratio (~2.67:1). */
-const BANNER_RATIO = 769 / 288;
+/** Match homepage hero — preserve source aspect ratio (~16:9). */
+const BANNER_RATIO = 1672 / 941;
 
 const heroBuffer = Buffer.from(
 	await fetch(HERO_URL, {
