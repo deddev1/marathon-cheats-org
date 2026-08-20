@@ -5,6 +5,7 @@ import Hero from '../components/Hero.astro';
 import HomeReviews from '../components/HomeReviews.astro';
 import HomeSeo from '../components/HomeSeo.astro';
 import HomeAboutApp from '../components/react/HomeAbout';
+import HomeAboutVideo from '../components/HomeAboutVideo.astro';
 import ExternalResources from '../components/ExternalResources.astro';
 import { externalUrls } from '../data/external-resources';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -114,7 +115,12 @@ const extraGraph: Record<string, unknown>[] = [
 			{
 				locale === 'en' ? (
 					<>
-						<HomeAboutApp client:visible locale={locale} />
+						<section class="shell home__prose home__prose--en" aria-labelledby="home-about-title">
+							<div class="home__about-grid">
+								<HomeAboutApp client:visible locale={locale} />
+								<HomeAboutVideo />
+							</div>
+						</section>
 						<HomeSeo locale={locale} />
 						<div class="shell">
 							<ExternalResources locale={locale} omitHrefs={[externalUrls.wiki]} />
@@ -309,6 +315,20 @@ const extraGraph: Record<string, unknown>[] = [
 		font-weight: 700;
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
+	}
+
+	.home__about-video-loading {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		margin: 0;
+		padding: 1rem;
+		font-size: 0.8125rem;
+		font-weight: 600;
+		color: #fff;
+		background: rgba(5, 5, 6, 0.55);
+		pointer-events: none;
 	}
 
 	.home__about-video-error {

@@ -1,0 +1,113 @@
+---
+/** Homepage preview — poster only until click; no MP4 download on initial page load. */
+const PREVIEW_VIDEO_SRC =
+	'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/ef/0510%282%29.mp4';
+const PREVIEW_POSTER = '/images/marathon-preview-video-poster-640w.webp';
+---
+
+<div class="home__about-media" data-home-video>
+	<video
+		class="home__about-video"
+		width={640}
+		height={360}
+		playsinline
+		preload="none"
+		poster={PREVIEW_POSTER}
+	>
+		Your browser does not support embedded video playback.
+	</video>
+	<button
+		type="button"
+		class="home__about-video-play"
+		data-home-video-play
+		aria-label="Play Marathon Cheats preview video"
+	>
+		<span class="home__about-video-play-icon" aria-hidden="true">
+			<svg viewBox="0 0 24 24" fill="none">
+				<path
+					d="M8 5.8v12.4L19 12 8 5.8z"
+					fill="currentColor"
+					stroke="currentColor"
+					stroke-width="1.2"
+					stroke-linejoin="round"></path>
+			</svg>
+		</span>
+		<span class="home__about-video-play-label">Watch preview</span>
+	</button>
+	<p class="home__about-video-loading" data-home-video-loading hidden>Loading preview…</p>
+	<p class="home__about-video-error" data-home-video-error hidden role="status">
+		Video could not load.{' '}
+		<a href={PREVIEW_VIDEO_SRC} target="_blank" rel="noopener noreferrer">Open in new tab</a>
+	</p>
+</div>
+
+<script define:vars={{ PREVIEW_VIDEO_SRC }}>
+	function initHomeAboutVideo(root) {
+		const video = root.querySelector('video');
+		const playBtn = root.querySelector('[data-home-video-play]');
+		const loadingEl = root.querySelector('[data-home-video-loading]');
+		const errorEl = root.querySelector('[data-home-video-error]');
+		if (!video || !playBtn || !loadingEl || !errorEl) return;
+
+		let armed = false;
+
+		const showOverlay = () => {
+			playBtn.hidden = false;
+			loadingEl.hidden = true;
+		};
+
+		const showLoading = () => {
+			playBtn.hidden = true;
+			loadingEl.hidden = false;
+			errorEl.hidden = true;
+		};
+
+		const showError = () => {
+			loadingEl.hidden = true;
+			playBtn.hidden = false;
+			errorEl.hidden = false;
+			video.controls = true;
+		};
+
+		const hideOverlay = () => {
+			playBtn.hidden = true;
+			loadingEl.hidden = true;
+			errorEl.hidden = true;
+			video.controls = true;
+		};
+
+		playBtn.addEventListener('click', async () => {
+			if (armed) return;
+			armed = true;
+			showLoading();
+			video.controls = true;
+
+			if (!video.src) {
+				video.src = PREVIEW_VIDEO_SRC;
+			}
+
+			try {
+				video.load();
+				await video.play();
+			} catch {
+				// Autoplay failed even after gesture — native controls stay visible.
+				if (video.error) {
+					showError();
+					armed = false;
+					return;
+				}
+				loadingEl.hidden = true;
+			}
+		});
+
+		video.addEventListener('playing', hideOverlay);
+		video.addEventListener('error', () => {
+			showError();
+			armed = false;
+		});
+	}
+
+	for (const root of document.querySelectorAll('[data-home-video]')) {
+		initHomeAboutVideo(root);
+	}
+</script>
