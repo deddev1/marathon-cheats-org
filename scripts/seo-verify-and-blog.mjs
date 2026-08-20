@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 /**
  * SEO verify: leftover Fortnite/Warzone copy + Isle/The Isle leaks in blog and EN pages.
- * Auto-fixes known patterns, then exits 1 if banned terms remain.
+ * Default: verify only (safe for CI/prebuild). Pass --fix to auto-rewrite known patterns.
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { applyIsleReplacements, findIsleLeaks } from './isle-blog-guard.mjs';
+
+const FIX = process.argv.includes('--fix');
 
 const BLOG_PATH = 'src/data/blog/posts.generated.ts';
 const PAGES_EN = 'scripts/i18n-data/pages-en.mjs';
@@ -42,6 +44,13 @@ function applyTypoFixes(text) {
 	return out;
 }
 
+function maybeWrite(path, next, prev) {
+	if (next === prev) return false;
+	if (!FIX) return false;
+	writeFileSync(path, next);
+	return true;
+}
+
 function scanTypos(label, text) {
 	const hits = [];
 	for (const [bad] of TYPO_REPLACEMENTS) {
@@ -56,15 +65,10 @@ function scanTypos(label, text) {
 
 function scan(label, text, patterns) {
 	console.log(`--- ${label} ---`);
-	let found = 0;
 	for (const b of patterns) {
 		const n = text.split(b).length - 1;
-		if (n) {
-			console.log(`${b}: ${n}`);
-			found += n;
-		}
+		if (n) console.log(`${b}: ${n}`);
 	}
-	return found;
 }
 
 function scanIsle(label, text) {
@@ -77,16 +81,16 @@ function scanIsle(label, text) {
 	return hits;
 }
 
-// --- pages-en (typo auto-fix) ---
-let pagesRaw = readFileSync(PAGES_EN, 'utf8');
-pagesRaw = applyTypoFixes(pagesRaw);
-writeFileSync(PAGES_EN, pagesRaw);
+// --- pages-en ---
+const pagesOriginal = readFileSync(PAGES_EN, 'utf8');
+let pagesRaw = applyTypoFixes(pagesOriginal);
+maybeWrite(PAGES_EN, pagesRaw, pagesOriginal);
 scan('pages-en Fortnite leftovers', pagesRaw, FORTNITE_BAD);
 
-// --- generated i18n (typo auto-fix, all locales) ---
-let gen = readFileSync(CONTENT_GEN, 'utf8');
-gen = applyTypoFixes(gen);
-writeFileSync(CONTENT_GEN, gen);
+// --- generated i18n ---
+const genOriginal = readFileSync(CONTENT_GEN, 'utf8');
+let gen = applyTypoFixes(genOriginal);
+maybeWrite(CONTENT_GEN, gen, genOriginal);
 const enEnd = gen.indexOf('\n\t\tes:');
 const enSlice = enEnd > 0 ? gen.slice(0, enEnd) : gen.slice(0, 120000);
 scan('EN generated Fortnite leftovers', enSlice, [
@@ -102,8 +106,9 @@ scan('EN generated Fortnite leftovers', enSlice, [
 	'marathon-esp-hack',
 ]);
 
-// --- blog auto-fix ---
-let blog = readFileSync(BLOG_PATH, 'utf8');
+// --- blog ---
+const blogOriginal = readFileSync(BLOG_PATH, 'utf8');
+let blog = blogOriginal;
 const blogReps = [
 	['V-Bucks', 'credits'],
 	['Item Shop', 'in-game store'],
@@ -130,18 +135,20 @@ const blogReps = [
 	['before Ranked', 'before a run'],
 ];
 let blogFixCount = 0;
-for (const [a, b] of blogReps) {
-	if (blog.includes(a)) {
-		blog = blog.split(a).join(b);
-		blogFixCount += 1;
+if (FIX) {
+	for (const [a, b] of blogReps) {
+		if (blog.includes(a)) {
+			blog = blog.split(a).join(b);
+			blogFixCount += 1;
+		}
 	}
+	blog = applyIsleReplacements(blog);
+	blog = applyTypoFixes(blog);
 }
-blog = applyIsleReplacements(blog);
-blog = applyTypoFixes(blog);
-writeFileSync(BLOG_PATH, blog);
-console.log(`blog patterns fixed: ${blogFixCount} (+ Isle replacements)`);
+maybeWrite(BLOG_PATH, blog, blogOriginal);
+if (FIX) console.log(`blog patterns fixed: ${blogFixCount} (+ Isle replacements)`);
 
-// --- final Isle scan (fail build if leaks remain) ---
+// --- final scan ---
 const blogHits = scanIsle('blog', blog);
 const pagesHits = scanIsle('pages-en', pagesRaw);
 const enHits = scanIsle('EN generated', enSlice);
@@ -154,6 +161,7 @@ const typoHits = [
 const allHits = [...blogHits, ...pagesHits, ...enHits, ...typoHits];
 if (allHits.length) {
 	console.error(`\nFAIL: ${allHits.length} Isle/off-topic term(s) or typo(s) remain in published copy.`);
+	if (!FIX) console.error('Run: node scripts/seo-verify-and-blog.mjs --fix');
 	process.exit(1);
 }
 
