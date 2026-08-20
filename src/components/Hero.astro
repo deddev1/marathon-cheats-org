@@ -130,9 +130,10 @@ const monthly = productInfo.plans.find((p) => p.id === 'monthly') ?? productInfo
 		font-weight: 700;
 		line-height: 1.12;
 		letter-spacing: -0.03em;
-		overflow-wrap: anywhere;
+		white-space: nowrap;
 		color: #fff;
-		width: 100%;
+		width: max-content;
+		max-width: 100%;
 		text-transform: uppercase;
 	}
 
