@@ -20,7 +20,6 @@ import { getT } from '../i18n/server';
 import RelatedPages from '../components/RelatedPages.astro';
 import CategoryRow from '../components/CategoryRow.astro';
 import ExternalResources from '../components/ExternalResources.astro';
-import ExternalGuidePills from '../components/ExternalGuidePills.astro';
 
 type GalleryInput = string | { src: string; alt: string };
 
@@ -85,6 +84,14 @@ const pageId = pageIdProp ?? resolvePageId(canonicalPath);
 const ui = getUi(locale);
 const homeHref = getLocalizedPath('home', locale);
 const resolvedEyebrow = eyebrow ?? ui.product.title;
+
+function normalizeLabel(value: string): string {
+	return value.trim().toLowerCase().replace(/\s+/g, ' ');
+}
+
+const showEyebrow =
+	normalizeLabel(resolvedEyebrow) !== normalizeLabel(heading) &&
+	!normalizeLabel(heading).startsWith(`${normalizeLabel(resolvedEyebrow)} `);
 
 const normalizedGallery = gallery
 	.map((item) => {
@@ -165,10 +172,9 @@ const useHomeHero =
 						<span aria-hidden="true">/</span>
 						<span aria-current="page">{heading}</span>
 					</nav>
-					<p class="banner__eyebrow">{resolvedEyebrow}</p>
+					{showEyebrow ? <p class="banner__eyebrow">{resolvedEyebrow}</p> : null}
 					<h1 class="banner__title">{heading}</h1>
 					<p class="banner__intro" data-edit={introEdit || undefined}>{intro}</p>
-					{showExternalResources && <ExternalGuidePills locale={locale} class="banner__guides" />}
 					{
 						(ctaPrimary || ctaSecondary) && (
 							<div class="banner__actions">
@@ -334,10 +340,6 @@ const useHomeHero =
 		color: var(--ink-muted);
 		font-size: 0.975rem;
 		line-height: 1.55;
-	}
-
-	.banner__guides {
-		margin-top: 1rem;
 	}
 
 	.banner__actions {

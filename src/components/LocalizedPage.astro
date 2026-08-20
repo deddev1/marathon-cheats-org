@@ -35,7 +35,15 @@ const sections = simple?.sections ?? page.sections;
 const ctaPrimaryLabel = simple?.ctaPrimary ?? page.ctaPrimary;
 const ctaSecondaryLabel = simple?.ctaSecondary ?? page.ctaSecondary;
 const ctaSecondaryPath = simple?.ctaSecondaryHref ?? page.ctaSecondaryHref;
-const galleryTitle = simple?.galleryTitle ?? page.galleryTitle ?? t('common.inGameLook');
+const rawGalleryTitle = simple?.galleryTitle ?? page.galleryTitle ?? t('common.inGameLook');
+const galleryTitle =
+	normalizeLabel(rawGalleryTitle) === normalizeLabel(heading)
+		? t('common.inGameLook')
+		: rawGalleryTitle;
+
+function normalizeLabel(value: string): string {
+	return value.trim().toLowerCase().replace(/\s+/g, ' ');
+}
 
 const introEditByPage: Partial<Record<PageId, string>> = {
 	features: 'featuresIntro',
@@ -87,17 +95,9 @@ const monthly = productInfo.plans.find((p) => p.id === 'monthly') ?? productInfo
 const lifetime = productInfo.plans.find((p) => p.id === 'lifetime') ?? productInfo.plans[1];
 const showStorePlans = pageId === 'pricing' && locale === 'en';
 
-const eyebrowByPage: Partial<Record<PageId, string>> = {
-	features: ui.nav.features,
-	pricing: ui.nav.pricing,
-	updates: ui.nav.updates,
-	hacks: locale === 'en' ? t('nav.preview') : ui.nav.hacks,
-	'marathon-esp': ui.nav.esp,
-	'marathon-aimbot': ui.nav.aimbot,
-	radar: 'Radar',
-	setup: ui.nav.setup,
-	faq: ui.nav.faq,
-};
+/** Only set when the default product title would duplicate the page H1. */
+const eyebrow =
+	pageId === 'hacks' && locale === 'en' ? t('nav.preview') : undefined;
 ---
 
 <PageLayout
@@ -107,7 +107,7 @@ const eyebrowByPage: Partial<Record<PageId, string>> = {
 	heading={heading}
 	intro={intro}
 	introEdit={introEdit}
-	eyebrow={eyebrowByPage[pageId]}
+	eyebrow={eyebrow}
 	heroImage={crawl.src}
 	heroAlt={page.imageAlt || crawl.caption}
 	gallery={gallery}
