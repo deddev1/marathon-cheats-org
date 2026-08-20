@@ -1,4 +1,5 @@
 ---
-/** Retired EN hacks pillar — consolidated into homepage for hreflang + sitemap hygiene. */
-return Astro.redirect('/', 301);
+import LocalizedPage from '../../components/LocalizedPage.astro';
 ---
+
+<LocalizedPage locale="en" pageId="hacks" />

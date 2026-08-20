@@ -24,7 +24,7 @@ const TOPIC_LINKS = {
 	support: { kind: 'page' as const, pageId: 'support' as const, label: L('{brand} support') },
 	blog: { kind: 'path' as const, path: '/blog/', label: L('{game} Intel blog') },
 	reviews: { kind: 'path' as const, path: '/reviews/', label: L('{brand} buyer reviews') },
-	hacks: { kind: 'page' as const, pageId: 'home' as const, label: L('{primaryKeyword} pillar') },
+	hacks: { kind: 'page' as const, pageId: 'hacks' as const, label: L('{primaryKeyword} pillar') },
 	undetected: {
 		kind: 'page' as const,
 		pageId: 'undetected' as const,
