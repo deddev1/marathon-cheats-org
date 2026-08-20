@@ -13,6 +13,7 @@ const PAGES_EN = path.join(ROOT, 'scripts', 'i18n-data', 'pages-en.mjs');
 
 /** @type {Array<[RegExp|string, string]>} */
 const replacements = [
+	['RadarRadar', 'Radar'],
 	// Wrong publishers in prose (EXT.activision already links to escapefrommarathon.com)
 	['published by ${EXT.activision}', 'published by Bungie (${EXT.marathon})'],
 	['from ${EXT.activision}', 'from ${EXT.marathon}'],
@@ -89,7 +90,7 @@ const replacements = [
 	['soft aim, boxes, and on Windows PC', 'soft aim, and radar on Windows PC'],
 	['ESP, Soft Aim, ', 'ESP, Soft Aim & Radar'],
 	['Best Hacks with ESP & ', 'ESP Soft Aim & Radar'],
-	['ESP, Soft Aim & ', 'ESP, Soft Aim & Radar'],
+	// Do not replace "ESP, Soft Aim & " globally — it doubles Radar on titles that already end with "& Radar".
 	['with — learn', '— learn'],
 	['RBattlEye out for', 'Reach out for'],
 	['an BattlEye', 'a BattlEye'],

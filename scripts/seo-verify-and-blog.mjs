@@ -29,6 +29,31 @@ const FORTNITE_BAD = [
 	'marathon-aimbot-hack',
 ];
 
+const TYPO_REPLACEMENTS = [
+	['RadarRadar', 'Radar'],
+	['RBattlEye', 'Reach out'],
+];
+
+function applyTypoFixes(text) {
+	let out = text;
+	for (const [from, to] of TYPO_REPLACEMENTS) {
+		if (out.includes(from)) out = out.split(from).join(to);
+	}
+	return out;
+}
+
+function scanTypos(label, text) {
+	const hits = [];
+	for (const [bad] of TYPO_REPLACEMENTS) {
+		if (text.includes(bad)) hits.push({ label, match: bad });
+	}
+	if (hits.length) {
+		console.log(`--- ${label} typos (${hits.length}) ---`);
+		for (const h of hits) console.log(`  ${h.match}`);
+	}
+	return hits;
+}
+
 function scan(label, text, patterns) {
 	console.log(`--- ${label} ---`);
 	let found = 0;
@@ -52,12 +77,16 @@ function scanIsle(label, text) {
 	return hits;
 }
 
-// --- pages-en ---
-const pagesRaw = readFileSync(PAGES_EN, 'utf8');
+// --- pages-en (typo auto-fix) ---
+let pagesRaw = readFileSync(PAGES_EN, 'utf8');
+pagesRaw = applyTypoFixes(pagesRaw);
+writeFileSync(PAGES_EN, pagesRaw);
 scan('pages-en Fortnite leftovers', pagesRaw, FORTNITE_BAD);
 
-// --- EN generated slice ---
-const gen = readFileSync(CONTENT_GEN, 'utf8');
+// --- generated i18n (typo auto-fix, all locales) ---
+let gen = readFileSync(CONTENT_GEN, 'utf8');
+gen = applyTypoFixes(gen);
+writeFileSync(CONTENT_GEN, gen);
 const enEnd = gen.indexOf('\n\t\tes:');
 const enSlice = enEnd > 0 ? gen.slice(0, enEnd) : gen.slice(0, 120000);
 scan('EN generated Fortnite leftovers', enSlice, [
@@ -108,6 +137,7 @@ for (const [a, b] of blogReps) {
 	}
 }
 blog = applyIsleReplacements(blog);
+blog = applyTypoFixes(blog);
 writeFileSync(BLOG_PATH, blog);
 console.log(`blog patterns fixed: ${blogFixCount} (+ Isle replacements)`);
 
@@ -115,11 +145,16 @@ console.log(`blog patterns fixed: ${blogFixCount} (+ Isle replacements)`);
 const blogHits = scanIsle('blog', blog);
 const pagesHits = scanIsle('pages-en', pagesRaw);
 const enHits = scanIsle('EN generated', enSlice);
+const typoHits = [
+	...scanTypos('pages-en', pagesRaw),
+	...scanTypos('content.generated (all locales)', gen),
+	...scanTypos('blog', blog),
+];
 
-const allHits = [...blogHits, ...pagesHits, ...enHits];
+const allHits = [...blogHits, ...pagesHits, ...enHits, ...typoHits];
 if (allHits.length) {
-	console.error(`\nFAIL: ${allHits.length} Isle/off-topic term(s) remain in published copy.`);
+	console.error(`\nFAIL: ${allHits.length} Isle/off-topic term(s) or typo(s) remain in published copy.`);
 	process.exit(1);
 }
 
-console.log('\nOK: no Isle leaks or banned off-topic patterns in blog / EN pages.');
+console.log('\nOK: no Isle leaks, typos, or banned off-topic patterns in blog / EN pages.');
