@@ -13,7 +13,7 @@ export const brand = {
 	locale: 'en',
 	market: 'Worldwide',
 	supportEmail: 'support@marathoncheats.org',
-	checkoutUrl: 'https://zadeyo.com/go/QRH?to=%2Fproducts%2Fmarathon-novaxware',
+	checkoutUrl: 'https://zadeyo.com/go/QRH?to=%2Fproducts%2Fmarathon',
 
 	/** Game this template instance targets */
 	game: 'Marathon',
