@@ -13,6 +13,7 @@ const PREVIEW_POSTER = '/images/marathon-preview-video-poster-640w.webp';
 		playsinline
 		preload="none"
 		poster={PREVIEW_POSTER}
+		data-src={PREVIEW_VIDEO_SRC}
 	>
 		Your browser does not support embedded video playback.
 	</video>
@@ -49,12 +50,8 @@ const PREVIEW_POSTER = '/images/marathon-preview-video-poster-640w.webp';
 		const errorEl = root.querySelector('[data-home-video-error]');
 		if (!video || !playBtn || !loadingEl || !errorEl) return;
 
-		let armed = false;
-
-		const showOverlay = () => {
-			playBtn.hidden = false;
-			loadingEl.hidden = true;
-		};
+		const videoSrc = video.dataset.src || PREVIEW_VIDEO_SRC;
+		let loading = false;
 
 		const showLoading = () => {
 			playBtn.hidden = true;
@@ -63,6 +60,7 @@ const PREVIEW_POSTER = '/images/marathon-preview-video-poster-640w.webp';
 		};
 
 		const showError = () => {
+			loading = false;
 			loadingEl.hidden = true;
 			playBtn.hidden = false;
 			errorEl.hidden = false;
@@ -70,41 +68,43 @@ const PREVIEW_POSTER = '/images/marathon-preview-video-poster-640w.webp';
 		};
 
 		const hideOverlay = () => {
+			loading = false;
 			playBtn.hidden = true;
 			loadingEl.hidden = true;
 			errorEl.hidden = true;
 			video.controls = true;
 		};
 
+		const ensureVideoSrc = () => {
+			// Empty <video> elements expose the page URL via video.src — use getAttribute instead.
+			if (video.getAttribute('src')) return;
+			video.src = videoSrc;
+		};
+
 		playBtn.addEventListener('click', async () => {
-			if (armed) return;
-			armed = true;
+			if (loading) return;
+			loading = true;
 			showLoading();
 			video.controls = true;
-
-			if (!video.src) {
-				video.src = PREVIEW_VIDEO_SRC;
-			}
+			ensureVideoSrc();
 
 			try {
 				video.load();
 				await video.play();
 			} catch {
-				// Autoplay failed even after gesture — native controls stay visible.
 				if (video.error) {
 					showError();
-					armed = false;
 					return;
 				}
+				// Gesture was consumed; native controls remain for manual play.
 				loadingEl.hidden = true;
+				playBtn.hidden = true;
+				loading = false;
 			}
 		});
 
 		video.addEventListener('playing', hideOverlay);
-		video.addEventListener('error', () => {
-			showError();
-			armed = false;
-		});
+		video.addEventListener('error', showError);
 	}
 
 	for (const root of document.querySelectorAll('[data-home-video]')) {
