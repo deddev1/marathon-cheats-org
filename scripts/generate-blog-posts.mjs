@@ -18,7 +18,7 @@ const EXT = {
 		'<a href="https://store.steampowered.com/app/3065800/Marathon/" target="_blank" rel="noopener noreferrer">Marathon</a>',
 	status:
 		'<a href="https://store.steampowered.com/app/3065800/Marathon//" target="_blank" rel="noopener noreferrer">Marathon on Steam</a>',
-	eac:
+	battleye:
 		'<a href="https://www.battleye.com/" target="_blank" rel="noopener noreferrer">BattlEye</a>',
 };
 
@@ -37,15 +37,15 @@ const sources = [
 		slug: 'marathon-patch-notes-guide',
 		title: 'How to Read Marathon Patch Notes',
 		metaDescription:
-			'Learn how Marathon patch notes change dinosaur builds, growth economy, and maps. What to do after BattlEye and major updates in 2026.',
+			'Learn how Marathon patch notes change loadouts, loot economy, and maps. What to do after BattlEye and major client updates in 2026.',
 		h1: 'How to Read Marathon Patch Notes Without Guessing',
 		intro:
 			'When Bungie drops a patch, most players skim the headline and drop in anyway. That is how you walk into Tau Ceti IV with the wrong ammo and a gun that just lost its damage output. Here is a calmer way to read Marathon patch notes so your next run still makes sense.',
 		keywords: [
 			'marathon patch notes',
 			'marathon major update',
-			'eac patch',
-			'dinosaur build',
+			'battleye patch',
+			'loadout build',
 			'marathon intel',
 		],
 		imageAlt: 'Player reviewing Marathon patch notes before a survival run',
@@ -53,23 +53,23 @@ const sources = [
 			{
 				h2: 'What actually matters in a Marathon patch?',
 				paragraphs: [
-					`Official notes live on ${EXT.marathon}. Treat that page as the source of truth — Discord rumors and streamer hot takes come second. Ask three plain questions for every bullet: Does this change how adult carnivores push? Does this change what loot drops are worth pushing? Does this change which nest or map I should play tonight?`,
-					'Growth stat tables, growth tiers, apex spawn rates, and species unlocks move the real economy. A small attack timing tweak on an mid-tier species looks boring in a video title, but it quietly reshapes mid-range fights in outpost zones and Gateway. Cosmetic lines and UI polish almost never decide whether you survive high-traffic zones.',
+					`Official notes live on ${EXT.marathon}. Treat that page as the source of truth — Discord rumors and streamer hot takes come second. Ask three plain questions for every bullet: Does this change how contested loadouts push? Does this change what loot drops are worth pushing? Does this change which exfil route or map I should run tonight?`,
+					'Growth stat tables, loadout tiers, hot spawn rates, and loadout unlocks move the real economy. A small recoil control tweak on an mid-tier weapons looks boring in a video title, but it quietly reshapes mid-range fights in outpost zones and Gateway. Cosmetic lines and UI polish almost never decide whether you survive high-traffic zones.',
 					`If you also run third-player tools, separate game balance from anti-cheat maintenance. After a ${EXT.battleye} or client update, check our <a href="/updates/">Marathon Cheats status page</a> before you blame your own aim.`,
 				],
 			},
 			{
 				h2: 'Buffs, nerfs, and removed items — a simple framework',
 				paragraphs: [
-					'When an item is removed from run loot drops pools, delete it from your mental shopping list the same day. Heavy nerfs demote a species from “default kit” to “situational.” Light nerfs are fine if you already shoot cleaner than most lobbies. Buffs deserve a short test block — ten focused runs — before you rebuild your entire progress around them.',
-					'Growth stats and bite damage changes usually matter more than a single gun’s attack timing number. If a popular round loses penetration against adult carnivores, your Tau Ceti IV push into pack pushs suddenly needs a different mag. Pair this reading habit with our <a href="/blog/marathon-dinosaur-tier-list/">Marathon dinosaur tier list</a> so you are not chasing streamer builds that ignore your budget.',
+					'When an item is removed from run loot drops pools, delete it from your mental shopping list the same day. Heavy nerfs demote a loadout from “default kit” to “situational.” Light nerfs are fine if you already shoot cleaner than most lobbies. Buffs deserve a short test block — ten focused runs — before you rebuild your entire progress around them.',
+					'Growth stats and damage changes usually matter more than a single gun’s recoil control number. If a popular round loses penetration against contested loadouts, your Tau Ceti IV push into pack pushs suddenly needs a different mag. Pair this reading habit with our <a href="/blog/marathon-loadout-tier-list/">Marathon loadout tier list</a> so you are not chasing streamer builds that ignore your budget.',
 				],
 			},
 			{
 				h2: 'How patches reshuffle loadouts and map plans',
 				paragraphs: [
-					'When mid-tier carnivores feel strong, prioritize optics and stats that win 40–70 meter peeks. When stamina recovery get tighter, play more conservatively near exfil and loot zones and avoid ego third-players. When a map POI shifts — new locked rooms, moved spawns, apex spawn changes — rewrite your first three minutes on that map before you farm it for growth goals.',
-					'Keep in-game cosmetics chatter out of patch-day focus. Skin talk is fun; kill speed and nest camping patterns are what get you killed. For aggressive juvenile timing after a meta shift, see our <a href="/blog/marathon-growth-run-aggressive-strategies/">growth-run strategies</a>.',
+					'When reliable primarys feel strong, prioritize optics and stats that win 40–70 meter peeks. When stamina recovery get tighter, play more conservatively near exfil and loot zones and avoid ego third-players. When a map POI shifts — new locked rooms, moved spawns, or hotter contest rates — rewrite your first three minutes on that map before you farm it for credits.',
+					'Keep in-game cosmetics chatter out of patch-day focus. Skin talk is fun; kill speed and exfil camping patterns are what get you killed. For aggressive early-run timing after a meta shift, see our <a href="/blog/marathon-extraction-run-strategies/">extraction-run strategies</a>.',
 					`On big mornings, confirm ${EXT.status} looks healthy before you assume your client is broken. Then run a short checklist: note removed items, update your progress “buy list,” play five intentional runs, and only then lock a new main kit.`,
 				],
 			},
@@ -122,27 +122,27 @@ const sources = [
 		],
 	},
 	{
-		id: 'marathon-dinosaur-tier-list',
+		id: 'marathon-loadout-tier-list',
 		imageKey: 'aimbotCombat',
 		published: '2026-07-25',
 		updated: '2026-08-13',
 		category: 'Weapons',
 		featured: true,
-		slug: 'marathon-dinosaur-tier-list',
-		title: 'Marathon Dinosaur Tier List: Best Dinosaurs for Survival',
+		slug: 'marathon-loadout-tier-list',
+		title: 'Marathon Loadout Tier List: Best Guns for Extraction Runs',
 		metaDescription:
-			'A practical Marathon dinosaur tier list for rival runners and UESC patrols runs — carnivores, ambush builds, long-range species, ammo, and when each gun actually wins fights.',
-		h1: 'Marathon Dinosaur Tier List: What Wins Sessions in 2026',
+			'A practical Marathon loadout tier list for rival runners and UESC patrols — primaries, SMGs, DMRs, ammo, and when each gun actually wins fights.',
+		h1: 'Marathon Loadout Tier List: What Wins Sessions in 2026',
 		intro:
-			'Creator tier lists love flashy guns. Marathon rewards expected value: damage output, attack timing you can control, and a kit you can rebuild after you die. Here is how to rank dinosaurs for real runs — not highlight reels.',
+			'Creator tier lists love flashy guns. Marathon rewards expected value: damage output, recoil control you can control, and a kit you can rebuild after you die. Here is how to rank loadouts for real runs — not highlight reels.',
 		keywords: [
-			'marathon dinosaur tier list',
+			'marathon loadout tier list',
 			'best marathon guns',
-			'marathon meta dinosaurs',
+			'marathon meta loadouts',
 			'rex marathon',
 			'marathon intel',
 		],
-		imageAlt: 'Marathon dinosaurs laid out for a species comparison for a dinosaur build comparison',
+		imageAlt: 'Marathon weapons laid out for a loadout comparison',
 		sections: [
 			{
 				h2: 'How should you define S-tier in Marathon?',
@@ -155,14 +155,14 @@ const sources = [
 			{
 				h2: 'Ammo, kill speed, and peek discipline matter more than brand names',
 				paragraphs: [
-					'Time-to-kill in Marathon is really time-to-pen. A soft gun with the right rounds beats a loud meta rifle feeding trash ammo into class-five armor. Learn which rounds you can afford this patch cycle, then pick a platform that controls attack timing at your skill level.',
+					'Time-to-kill in Marathon is really time-to-pen. A soft gun with the right rounds beats a loud meta rifle feeding trash ammo into class-five armor. Learn which rounds you can afford this patch cycle, then pick a platform that controls recoil control at your skill level.',
 					'First-shot accuracy decides many peeks. A clean cadence — peek, fire a short burst, jiggle back, re-peek — beats standing still for ego sprays. Pair this mid-range plan with loot drops discipline from our <a href="/blog/marathon-loot-routes-guide/">loot routes guide</a> so you actually spawn with the ammo you planned to use.',
 				],
 			},
 			{
 				h2: 'Loadout pairings and common mistakes',
 				paragraphs: [
-					'A durable kit is usually a reliable mid-tier carnivore, a ambush build in contested zones or high-traffic zones, enough stamina recovery, and an growth tier you can replace after deaths. In extraction runs, that same spine supports the aggression patterns in our <a href="/blog/marathon-growth-run-aggressive-strategies/">growth strategies article</a>.',
+					'A durable kit is usually a reliable reliable primary, a ambush build in contested zones or high-traffic zones, enough stamina recovery, and a backup loadout you can replace after deaths. In extraction runs, that same spine supports the aggression patterns in our <a href="/blog/marathon-extraction-run-strategies/">extraction strategies article</a>.',
 					'Common mistakes: full-spraying from eighty meters, re-peeking the same pixel, swapping to an SMG at forty meters out of habit, and never practicing controlled bursts offline. If you also use aim-assist tooling, lock aim smoothing and fundamentals first, then review <a href="/marathon-aimbot/">Marathon Aimbot settings</a>.',
 				],
 			},
@@ -173,29 +173,29 @@ const sources = [
 		imageKey: 'survivalCombat',
 		published: '2026-07-22',
 		updated: '2026-08-13',
-		category: 'Growth Runs',
+		category: 'Extraction Runs',
 		featured: true,
-		slug: 'marathon-growth-run-aggressive-strategies',
-		title: 'Marathon Growth Run Strategies That Actually Find Carcasses',
+		slug: 'marathon-extraction-run-strategies',
+		title: 'Marathon Extraction Run Strategies That Actually Pay Off',
 		metaDescription:
-			'Five aggressive but smart Marathon growth strategies — timings, exfils, third-players, and how to leave runs with growth instead of low growth.',
-		h1: 'Marathon Growth Run Strategies: How to Leave With Growth',
+			'Five aggressive but smart Marathon extraction strategies — timings, exfils, third-parties, and how to leave runs with credits instead of empty pockets.',
+		h1: 'Marathon Extraction Run Strategies: How to Leave With Loot',
 		intro:
-			'Passive juvenile players wait behind a bush while two player teams erase each other, then spray into the mess and die. Strong extraction runs manufacture a short advantage, grab what matters, and nest before the run ends collapses on you.',
+			'Passive early-run players wait behind a bush while two player teams erase each other, then spray into the mess and die. Strong extraction runs manufacture a short advantage, grab what matters, and extract before the run ends collapses on you.',
 		keywords: [
 			'marathon extraction run',
-			'growth strategies',
-			'marathon juvenile',
+			'extraction strategies',
+			'marathon extraction',
 			'marathon exfils',
 			'Marathon ESP',
 		],
-		imageAlt: 'juvenile player moving toward a nest with loot drops in Marathon',
+		imageAlt: 'Marathon runner moving toward an exfil with loot',
 		sections: [
 			{
 				h2: 'Why so many extraction runs feel soft',
 				paragraphs: [
-					'juvenile builds are random, timers are limited, and player enemy forces can turn on you. Waiting forever for a “perfect” third-player often means you arrive late to a patched lobby with nothing left. Information tools like <a href="/marathon-esp/">Marathon ESP</a> can help you see fights early — but you still need an exit plan.',
-					'Decide your nest route before you swing. Take a clear damage window, grab high-value loot, then leave. The usual third-player clock in hot POIs is only a few seconds long once gunfire starts.',
+					'starter kits are random, timers are limited, and player enemy forces can turn on you. Waiting forever for a “perfect” third-player often means you arrive late to a patched lobby with nothing left. Information tools like <a href="/marathon-esp/">Marathon ESP</a> can help you see fights early — but you still need an exit plan.',
+					'Decide your exfil route before you swing. Take a clear damage window, grab high-value loot, then leave. The usual third-player clock in hot POIs is only a few seconds long once gunfire starts.',
 				],
 			},
 			{
@@ -206,9 +206,9 @@ const sources = [
 				],
 			},
 			{
-				h2: 'Warmup checklist before you spawn as a juvenile',
+				h2: 'Warmup checklist before you queue your first run',
 				paragraphs: [
-					'Know your map’s main exfils, bring a simple med plan, and pick two POIs with cover ladders instead of open fields. Pair this article with <a href="/blog/marathon-loot-routes-guide/">loot routes</a>, <a href="/blog/marathon-dinosaur-tier-list/">dinosaur tiers</a>, and <a href="/blog/marathon-warmup-maps-ranked/">warmup routines</a>.',
+					'Know your map’s main exfils, bring a simple med plan, and pick two POIs with cover ladders instead of open fields. Pair this article with <a href="/blog/marathon-loot-routes-guide/">loot routes</a>, <a href="/blog/marathon-loadout-tier-list/">loadout tiers</a>, and <a href="/blog/marathon-warmup-maps-ranked/">warmup routines</a>.',
 					'Try one run where you force early contact only when you have armor and a usable gun — then track whether you extracted before the third-player window closed.',
 				],
 			},
@@ -224,7 +224,7 @@ const sources = [
 		slug: 'marathon-competitive-meta-guide',
 		title: 'What Competitive Marathon Players Optimize For',
 		metaDescription:
-			'What strong Marathon competitors optimize — nest plans, loadouts, mid-session habits, and which competitive habits help normal survival drop ins.',
+			'What strong Marathon competitors optimize — exfil plans, loadouts, mid-session habits, and which competitive habits help normal survival drop ins.',
 		h1: 'What Competitive Marathon Players Optimize For',
 		intro:
 			'Tournament winners and high-level pairs are not lucky spawn gods. They optimize expected value: safer loot drops paths, cleaner mid-session habits, and fights they choose on purpose. Here is what translates into your normal Marathon drop ins.',
@@ -247,14 +247,14 @@ const sources = [
 			{
 				h2: 'Spawn EV and loadout patterns that keep showing up',
 				paragraphs: [
-					'Score every spawn on contest rate, loot drops quality in the first few minutes, nest safety, exit paths, and split potential with teammates. Edge spawns with clean exits often beat “sexy” mid-map landmarks that look good on stream and then get third-playered.',
-					'Expect a reliable mid-tier carnivore, a ambush build, mobility or stamina management, and enough stamina recovery. High-tier loot drops is taken when free, not forced — matching the mindset in our <a href="/blog/marathon-dinosaur-tier-list/">dinosaur tier list</a>.',
+					'Score every spawn on contest rate, loot drops quality in the first few minutes, exfil safety, exit paths, and split potential with teammates. Edge spawns with clean exits often beat “sexy” mid-map landmarks that look good on stream and then get third-playered.',
+					'Expect a reliable reliable primary, a ambush build, mobility or stamina management, and enough stamina recovery. High-tier loot drops is taken when free, not forced — matching the mindset in our <a href="/blog/marathon-loadout-tier-list/">loadout tier list</a>.',
 				],
 			},
 			{
 				h2: 'What actually translates to normal runs',
 				paragraphs: [
-					'Steal loot drops-timer discipline, a simple growth path, earlier rotates, and selective fights. Do not blindly mirror a trio drop when you solo drop in. Winners rotate early enough to choose sides — the same idea shows up in our <a href="/blog/marathon-growth-run-aggressive-strategies/">growth aggression guide</a>.',
+					'Steal loot drops-timer discipline, a simple loot route, earlier rotates, and selective fights. Do not blindly mirror a trio drop when you solo drop in. Winners rotate early enough to choose sides — the same idea shows up in our <a href="/blog/marathon-extraction-run-strategies/">extraction aggression guide</a>.',
 					'Try this: watch fifteen minutes of a strong stream replay with five timestamps. Steal one mid-session habit only. Run it for a six-session run block before adding another.',
 				],
 			},
@@ -300,7 +300,7 @@ const sources = [
 			{
 				h2: 'Convert a strong drop into a win',
 				paragraphs: [
-					'Pair these routes with <a href="/blog/marathon-growth-run-aggressive-strategies/">growth aggression</a> and <a href="/blog/marathon-dinosaur-tier-list/">dinosaur tiers</a>. Leave spawn with growth advantage so mid-session becomes a skill check instead of a desperate growth panic.',
+					'Pair these routes with <a href="/blog/marathon-extraction-run-strategies/">extraction aggression</a> and <a href="/blog/marathon-loadout-tier-list/">loadout tiers</a>. Leave spawn with kit advantage so mid-session becomes a skill check instead of a desperate loot panic.',
 					'If you practice with loot markers, read <a href="/marathon-esp/">Marathon ESP</a> for category toggles — then still run the timer so your habits stay sharp without overlays.',
 				],
 			},
@@ -333,7 +333,7 @@ const sources = [
 				h2: 'Visibility and performance before fancy numbers',
 				paragraphs: [
 					'If your frame rate collapses in Tau Ceti IV river zones or Gateway interiors, no aim smoothing tip will save you. Prioritize a stable FPS and readable shadows over maximum eye candy. Many strong players lower clutter so player silhouettes pop sooner in tree lines and warehouse lighting.',
-					'Test changes in practice server or a quiet juvenile before locking them for serious survival runs. Your eyes adapt in a few runs — give settings that long before declaring them useless.',
+					'Test changes in practice server or a quiet practice lobby before locking them for serious survival runs. Your eyes adapt in a few runs — give settings that long before declaring them useless.',
 				],
 			},
 			{
@@ -346,7 +346,7 @@ const sources = [
 			{
 				h2: 'Audio cues that win exfils',
 				paragraphs: [
-					'Footsteps, ability cooldowns, and nest calls often matter more than a tiny graphics slider. Use headphones, keep voice chat from drowning game audio, and learn the sound difference between a AI dinosaur shuffle and a player push.',
+					'Footsteps, ability cooldowns, and exfil callouts often matter more than a tiny graphics slider. Use headphones, keep voice chat from drowning game audio, and learn the sound difference between a AI patrol shuffle and a player push.',
 					'Settings are leverage, not a cheat code. Pair them with map knowledge from our <a href="/blog/marathon-loot-routes-guide/">loot routes</a> article so you know where those sounds are coming from.',
 				],
 			},
@@ -379,20 +379,20 @@ const sources = [
 				h2: 'Why your first run should not be the warmup',
 				paragraphs: [
 					'Most players boot the game, slap on a kit, and die to the first clean peeker. Hands are cold, audio is not dialed, and map timing feels off. Treat warmup as part of the run, not optional fluff.',
-					'Offline practice, practice server habits, and a couple of low-stakes extraction runs exist so your expensive grown dinosaur is not the experiment.',
+					'Offline practice, practice server habits, and a couple of low-stakes extraction runs exist so your expensive expensive kit is not the experiment.',
 				],
 			},
 			{
 				h2: 'A simple 15-minute routine that scales',
 				paragraphs: [
-					'Minutes 1–5: tracking and short bursts on a practice server with AI dinosaurs. Minutes 6–10: ambush practice on common angles — jiggle, counter-strafe, pre-aim bite height. Minutes 11–15: one focused juvenile or practice server block where you only work one habit, like holding a nest or clearing dense cover.',
+					'Minutes 1–5: tracking and short bursts on a practice server with AI patrols. Minutes 6–10: ambush practice on common angles — jiggle, counter-strafe, pre-aim head level. Minutes 11–15: one focused practice or practice server block where you only work one habit, like holding an exfil or clearing dense cover.',
 					'Keep the routine identical for a week so improvements are measurable. Rotate maps later — Tau Ceti IV one day, Woods the next — after the habit sticks.',
 				],
 			},
 			{
 				h2: 'What to do right before you ready up',
 				paragraphs: [
-					'Check progress, stamina recovery, and nest plans, confirm your map exfils, and skim <a href="/updates/">cheat status</a> if you use overlays after a patch. Pair warmup with <a href="/blog/marathon-pro-settings-guide/">settings</a> and <a href="/blog/marathon-dinosaur-tier-list/">dinosaur tiers</a> so you are not reinventing the kit every night.',
+					'Check progress, stamina recovery, and exfil plans, confirm your map exfils, and skim <a href="/updates/">cheat status</a> if you use overlays after a patch. Pair warmup with <a href="/blog/marathon-pro-settings-guide/">settings</a> and <a href="/blog/marathon-loadout-tier-list/">loadout tiers</a> so you are not reinventing the kit every night.',
 					'If the first two player deaths feel mechanical, stop stacking kits and repeat five minutes of ambush practice. Ego dropping in while tilted is not a strategy.',
 				],
 			},
@@ -411,7 +411,7 @@ const sources = [
 			'A clear 2026 guide to marathon cheats — what ESP, soft aim, and radar actually do in Marathon, how BattlEye maintenance works, and how to buy safely.',
 		h1: 'Marathon Cheats in 2026: What They Are and How to Use Them Carefully',
 		intro:
-			'People search “marathon cheats” for a simple reason: Marathon is information-heavy, punishing, and full of nest campers. This guide explains what modern undetected packages actually include, how BattlEye maintenance works, and how to decide whether a tool fits your play style.',
+			'People search “marathon cheats” for a simple reason: Marathon is information-heavy, punishing, and full of exfil campers. This guide explains what modern undetected packages actually include, how BattlEye maintenance works, and how to decide whether a tool fits your play style.',
 		keywords: [
 			'marathon cheats',
 			'undetected marathon cheats',
@@ -484,7 +484,7 @@ const sources = [
 			{
 				h2: 'Feature checklist that matches real Marathon runs',
 				paragraphs: [
-					'For Marathon, useful features usually mean player ESP with distance, loot filters, nest awareness, radar for flanks, and soft aim you can tone down. “Unlock all” marketing and other-game leftovers are red flags that the page was cloned from another game.',
+					'For Marathon, useful features usually mean player ESP with distance, loot filters, exfil awareness, radar for flanks, and soft aim you can tone down. “Unlock all” marketing and other-game leftovers are red flags that the page was cloned from another game.',
 					'Compare the stack on <a href="/features/">Features</a>, <a href="/marathon-esp/">ESP</a>, and <a href="/marathon-aimbot/">Aimbot</a>. If radar matters to how you hold exfils, confirm it exists before checkout.',
 				],
 			},
@@ -514,7 +514,7 @@ const sources = [
 		keywords: [
 			'marathon cheats 2026',
 			'marathon cheats 2026',
-			'eac 2026',
+			'battleye 2026',
 			'marathon patch cycle',
 			'marathon cheats updates',
 		],
@@ -553,10 +553,10 @@ const sources = [
 		slug: 'marathon-aimbot-settings-guide',
 		title: 'Marathon Aimbot Settings: Smooth FOV Without Looking Robotic',
 		metaDescription:
-			'How to tune Marathon Aimbot and soft aim settings — FOV, smoothness, bone priority, and per-species profiles that feel natural in Marathon runs.',
+			'How to tune Marathon Aimbot and soft aim settings — FOV, smoothness, bone priority, and per-weapon profiles that feel natural in Marathon runs.',
 		h1: 'Marathon Aimbot Settings That Feel Natural',
 		intro:
-			'A harsh aimbot gets you killed by reports and by your own bad habits. Soft, tunable aim assistance is what most Marathon players actually want. Here is how to think about FOV, smoothness, and species profiles.',
+			'A harsh aimbot gets you killed by reports and by your own bad habits. Soft, tunable aim assistance is what most Marathon players actually want. Here is how to think about FOV, smoothness, and weapon profiles.',
 		keywords: [
 			'Marathon Aimbot settings',
 			'marathon soft aim',
@@ -576,7 +576,7 @@ const sources = [
 			{
 				h2: 'Per-weapon profiles beat one global slider',
 				paragraphs: [
-					'carnivores, ambush builds, and long-range species want different assist. Save separate profiles so high-traffic zones sprays and long forest ambushes do not share the same magnet. Bone priority should favor what you can actually hit under stress — usually upper chest to head transitions, not miracles.',
+					'SMG, DMR builds, and long-range weapons want different assist. Save separate profiles so high-traffic zones sprays and long forest ambushes do not share the same magnet. Bone priority should favor what you can actually hit under stress — usually upper chest to head transitions, not miracles.',
 					'Hotkeys matter mid-session. You need to disable assist when you are loot dropsing friendlies or holding a suspicious angle where obvious corrections would look wrong.',
 				],
 			},
@@ -614,7 +614,7 @@ const sources = [
 			{
 				h2: 'What ESP shows during a real run',
 				paragraphs: [
-					'Player ESP outlines runners and UESC forces through walls and terrain, often with distance. Carcass ESP highlights loot drops or high-value items. Nest cues help you avoid camping surprises. That information gap is why people search for Marathon ESP in the first place.',
+					'Player ESP outlines runners and UESC forces through walls and terrain, often with distance. Loot ESP highlights loot drops or high-value items. Exfil cues help you avoid camping surprises. That information gap is why people search for Marathon ESP in the first place.',
 					'Read the dedicated pages for <a href="/marathon-esp/">ESP</a> and <a href="/marathon-wallhack/">wallhack</a> if you want category-level detail.',
 				],
 			},
@@ -634,13 +634,13 @@ const sources = [
 		],
 	},
 	{
-		id: 'undetected-marathon-cheats-eac',
+		id: 'undetected-marathon-cheats-battleye',
 		imageKey: 'dinoEsp',
 		published: '2026-07-19',
 		updated: '2026-08-13',
 		category: 'Undetected',
 		featured: true,
-		slug: 'undetected-marathon-cheats-eac',
+		slug: 'undetected-marathon-cheats-battleye',
 		title: 'Undetected Marathon Cheats and BattlEye Reality',
 		metaDescription:
 			'What “undetected marathon cheats” really means under BattlEye — maintenance, patch days, risk, and how to read status before you drop in Marathon.',
@@ -649,7 +649,7 @@ const sources = [
 			'“Undetected” is the most abused word in cheat marketing. Under BattlEye, it means a package is being maintained against current detections — not that bans are impossible. Here is the honest version for Marathon players.',
 		keywords: [
 			'undetected marathon cheats',
-			'eac marathon',
+			'battleye marathon',
 			'marathon ban risk',
 			'marathon undetected',
 			'marathon status',
@@ -750,7 +750,7 @@ const sources = [
 			{
 				h2: 'Week one — setup and first impressions',
 				paragraphs: [
-					'Delivery was fine: license in email, loader as admin, overlays disabled. Menu learning took a couple evenings. Player ESP was readable. Carcass ESP felt secondary. I ran several nights with information tools only and no aim assist so I could judge visibility on its own.',
+					'Delivery was fine: license in email, loader as admin, overlays disabled. Menu learning took a couple evenings. Player ESP was readable. Loot ESP felt secondary. I ran several nights with information tools only and no aim assist so I could judge visibility on its own.',
 					'Marathon Cheats later felt similar on install time, but filters for loot drops and exfils were easier to toggle independently during loot routes.',
 				],
 			},
@@ -758,7 +758,7 @@ const sources = [
 				h2: 'Soft aim and the mid-session feel',
 				paragraphs: [
 					'Conservative FOV soft aim helped SMG and AR tracking. Sniping needed manual profile swaps that slowed me down. When I pushed smoothness too low, corrections looked obvious in review clips. Tuning toward smoother tracking fixed kills and reduced the robotic look.',
-					'On Marathon Cheats I relied more on per-species profiles so high-traffic zones and long peeks did not share one magnet. Details are in the <a href="/marathon-aimbot/">aimbot guide</a>.',
+					'On Marathon Cheats I relied more on per-weapon profiles so high-traffic zones and long peeks did not share one magnet. Details are in the <a href="/marathon-aimbot/">aimbot guide</a>.',
 				],
 			},
 			{
@@ -850,19 +850,19 @@ function normalizeKeywords(keywords) {
 const POST_META = {
 	'patch-notes-breakdown': {
 		h1: 'How to Read Marathon Patch Notes',
-		keywords: ['marathon patch notes', 'marathon updates', 'eac patch'],
+		keywords: ['marathon patch notes', 'marathon updates', 'battleye patch'],
 	},
 	'marathon-skin-leaks': {
 		h1: 'Marathon Cosmetics Buying Guide',
 		keywords: ['marathon skins', 'marathon cosmetics', 'marathon store'],
 	},
-	'marathon-dinosaur-tier-list': {
-		h1: 'Marathon Dinosaur Tier List for 2026',
-		keywords: ['marathon tier list', 'best marathon dinosaurs', 'marathon meta'],
+	'marathon-loadout-tier-list': {
+		h1: 'Marathon Loadout Tier List for 2026',
+		keywords: ['marathon tier list', 'best marathon loadouts', 'marathon meta'],
 	},
 	'marathon-growth-run-meta': {
-		h1: 'Marathon Growth Run Strategies',
-		keywords: ['marathon extraction run', 'marathon juvenile', 'marathon exfils'],
+		h1: 'Marathon Extraction Run Strategies',
+		keywords: ['marathon extraction run', 'marathon extraction', 'marathon exfils'],
 	},
 	'marathon-competitive-meta': {
 		h1: 'Competitive Marathon Meta Guide',
@@ -890,7 +890,7 @@ const POST_META = {
 	},
 	'marathon-cheats-2026-whats-new': {
 		h1: 'Marathon Cheats Updates in 2026',
-		keywords: ['marathon cheats 2026', 'eac updates', 'hack status'],
+		keywords: ['marathon cheats 2026', 'battleye updates', 'hack status'],
 	},
 	'marathon-aimbot-settings-guide': {
 		h1: 'The Marathon Aimbot Settings Guide',
@@ -900,9 +900,9 @@ const POST_META = {
 		h1: 'The Marathon ESP and Wallhack Guide',
 		keywords: ['marathon esp', 'marathon wallhack', 'marathon cheats'],
 	},
-	'undetected-marathon-cheats-eac': {
+	'undetected-marathon-cheats-battleye': {
 		h1: 'Undetected Marathon Cheats Explained',
-		keywords: ['undetected marathon cheats', 'eac marathon', 'ban risk'],
+		keywords: ['undetected marathon cheats', 'battleye marathon', 'ban risk'],
 	},
 	'marathon-cheats-vs-cheatvault': {
 		h1: 'Marathon Cheats vs Budget Shops',
@@ -924,7 +924,7 @@ const EXTRA_SECTIONS = {
 		{
 			h2: 'Staying ahead after every Marathon update',
 			paragraphs: [
-				'Patch days are when most players lose progress — not because the game broke, but because they never updated their habits. After you read the notes, spend ten minutes on our <a href="/updates/">status page</a> if you use overlays, then adjust your main species and nest plan before you queue.',
+				'Patch days are when most players lose progress — not because the game broke, but because they never updated their habits. After you read the notes, spend ten minutes on our <a href="/updates/">status page</a> if you use overlays, then adjust your main loadout and exfil plan before you queue.',
 				'If you rely on information tools, confirm the stack on <a href="/marathon-cheats/">Marathon Cheats</a> still matches the current client. Pair patch reading with the <a href="/faq/">FAQ</a> when something in the notes is unclear — guessing costs more time than one careful read.',
 			],
 		},
@@ -933,25 +933,25 @@ const EXTRA_SECTIONS = {
 		{
 			h2: 'Cosmetics vs survival tools — keep the budget split clear',
 			paragraphs: [
-				'Skins are fun, but they do not replace map reads, nest timing, or a stable kit. If you play for information advantage, budget for <a href="/marathon-esp/">ESP</a> and <a href="/features/">features</a> before you chase another cosmetic drop.',
+				'Skins are fun, but they do not replace map reads, exfil timing, or a stable kit. If you play for information advantage, budget for <a href="/marathon-esp/">ESP</a> and <a href="/features/">features</a> before you chase another cosmetic drop.',
 				'When a patch cycle shifts visibility or lighting, revisit your settings in our <a href="/blog/marathon-pro-settings-guide/">pro settings guide</a> before you blame a skin for a lost fight.',
 			],
 		},
 	],
-	'marathon-dinosaur-tier-list': [
+	'marathon-loadout-tier-list': [
 		{
 			h2: 'Turn tier knowledge into run wins',
 			paragraphs: [
-				'A tier list only helps when you spawn with the right plan. Match your pick to your map, nest route, and whether you solo or trio. Competitive players often pair species choice with <a href="/marathon-radar-hack/">radar</a> reads so flanks do not erase a good spawn.',
-				'If you want the full cheat-side stack that supports aggressive picks, start at <a href="/marathon-cheats/">Marathon Cheats</a> and compare plans on <a href="/pricing/">Pricing</a> before you commit to a main species for the wipe.',
+				'A tier list only helps when you spawn with the right plan. Match your pick to your map, exfil route, and whether you solo or trio. Competitive players often pair loadout choice with <a href="/marathon-radar-hack/">radar</a> reads so flanks do not erase a good spawn.',
+				'If you want the full cheat-side stack that supports aggressive picks, start at <a href="/marathon-cheats/">Marathon Cheats</a> and compare plans on <a href="/pricing/">Pricing</a> before you commit to a main loadout for the wipe.',
 			],
 		},
 	],
 	'marathon-growth-run-meta': [
 		{
-			h2: 'Growth runs and information tools work together',
+			h2: 'Extraction runs and information tools work together',
 			paragraphs: [
-				'Juvenile timing is about seconds. Seeing a fight early — through sound, map knowledge, or <a href="/marathon-esp/">ESP</a> — lets you third-party with a plan instead of sprinting into a crossfire.',
+				'Early-run timing is about seconds. Seeing a fight early — through sound, map knowledge, or <a href="/marathon-esp/">ESP</a> — lets you third-party with a plan instead of sprinting into a crossfire.',
 				'After a strong extraction run, protect the kit with conservative settings from our <a href="/marathon-aimbot/">aimbot guide</a> and check <a href="/updates/">Updates</a> before long runs on patch weeks.',
 			],
 		},
@@ -960,7 +960,7 @@ const EXTRA_SECTIONS = {
 		{
 			h2: 'Competitive habits that pair with Marathon Cheats tools',
 			paragraphs: [
-				'High-level players win on information timing: who rotates first, who holds nest, who peeks with armor. That is the same loop <a href="/features/">ESP, radar, and soft aim</a> support when tuned conservatively.',
+				'High-level players win on information timing: who rotates first, who holds exfil, who peeks with armor. That is the same loop <a href="/features/">ESP, radar, and soft aim</a> support when tuned conservatively.',
 				'If you study competitive meta, also read <a href="/marathon-cheats/">Marathon Cheats</a> and <a href="/setup/">Setup</a> so your overlay stack stays readable instead of noisy during real fights.',
 			],
 		},
@@ -987,7 +987,7 @@ const EXTRA_SECTIONS = {
 		{
 			h2: 'Warm up before you trust expensive kits',
 			paragraphs: [
-				'Warmup protects grown dinosaurs and paid licenses alike. Run the routine, then confirm <a href="/updates/">status</a> if you use overlays after a patch.',
+				'Warmup protects expensive kits and paid licenses alike. Run the routine, then confirm <a href="/updates/">status</a> if you use overlays after a patch.',
 				'Pair warmup with <a href="/marathon-aimbot/">aim profiles</a> and <a href="/marathon-esp/">ESP toggles</a> you already plan to use in-session — not new settings you have never tested under pressure.',
 			],
 		},
@@ -1023,7 +1023,7 @@ const EXTRA_SECTIONS = {
 		{
 			h2: 'Build a profile set you can trust in exfils',
 			paragraphs: [
-				'Save carnivore, ambush, and long-range profiles separately. Test each on <a href="/blog/marathon-warmup-maps-ranked/">warmup maps</a> before you take a grown dinosaur into high-traffic zones.',
+				'Save SMG, DMR, and long-range profiles separately. Test each on <a href="/blog/marathon-warmup-maps-ranked/">warmup maps</a> before you take a expensive kit into high-traffic zones.',
 				'Combine tuned aim with <a href="/marathon-esp/">ESP</a> and <a href="/marathon-radar-hack/">radar</a> so you only assist fights you chose on purpose. After patches, confirm <a href="/updates/">Updates</a> before you tweak FOV on an old build.',
 			],
 		},
@@ -1037,12 +1037,12 @@ const EXTRA_SECTIONS = {
 			],
 		},
 	],
-	'undetected-marathon-cheats-eac': [
+	'undetected-marathon-cheats-battleye': [
 		{
 			h2: 'Responsible undetected habits for Marathon',
 			paragraphs: [
 				'Undetected means maintained today — not immune forever. Read public notes, wait for rebuilds, and avoid rage settings that draw reports even on clean builds.',
-				'Use <a href="/updates/">Updates</a>, <a href="/battleye-bypass/">EAC maintenance</a>, and <a href="/setup/">Setup</a> as your patch-week routine. Compare the full stack on <a href="/marathon-cheats/">Marathon Cheats</a> when you are ready to buy.',
+				'Use <a href="/updates/">Updates</a>, <a href="/battleye-bypass/">BattlEye maintenance</a>, and <a href="/setup/">Setup</a> as your patch-week routine. Compare the full stack on <a href="/marathon-cheats/">Marathon Cheats</a> when you are ready to buy.',
 			],
 		},
 	],

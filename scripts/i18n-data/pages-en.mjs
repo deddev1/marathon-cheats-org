@@ -57,8 +57,8 @@ export const enPages = {
 				'Compare category detail on the <a href="/marathon-esp/">wallhack page</a> and pair visibility with the <a href="/marathon-radar-hack/">radar hack</a> for flanks outside your FOV.',
 				[
 					'Enemy player ESP outlines with distance',
-					'Carcass and loot markers for faster rotations',
-					'Apex and nest awareness cues',
+					'Loot markers for faster rotations',
+					'Exfil and threat awareness cues',
 					'Toggleable categories to reduce overlay noise',
 				],
 			),
@@ -82,7 +82,7 @@ export const enPages = {
 			'Marathon Aimbot with soft aim tuning for Windows PC. FOV, bone priority, and hotkeys bundled with ESP boxes in our Marathon Cheats package.',
 		h1: 'Marathon Aimbot — Soft Aim for Windows PC',
 		intro:
-			'Configurable Aimbot tools for Marathon pushs. Smoothness, FOV, bone priority, and per-species profiles — bundled with ESP wallhack and radar in one undetected license.',
+			'Configurable Aimbot tools for Marathon pushs. Smoothness, FOV, bone priority, and per-weapon profiles — bundled with ESP wallhack and radar in one undetected license.',
 		imageAlt: "Marathon Aimbot and soft aim controls on Windows PC",
 		galleryTitle: 'Marathon Aimbot combat previews',
 		ctaPrimary: 'Buy Marathon Cheats',
@@ -96,15 +96,15 @@ export const enPages = {
 				`Weapon balance and season rules change via ${EXT.marathon}. Revisit Aimbot FOV and smoothness after major combat patches so assist still matches the live kill speed windows.`,
 			),
 			section(
-				'Per-species Aimbot profiles',
-				'Save separate Aimbot profiles for carnivores, ambush builds, and long-range species. Switch between long-range ambush pushs and high-traffic zone clears without reopening menus every run.',
+				'Per-weapon Aimbot profiles',
+				'Save separate Aimbot profiles for AR, SMG, and DMR loadouts. Switch between long-range ambush pushs and high-traffic zone clears without reopening menus every run.',
 				'Prefer softer tracking? Read the <a href="/marathon-aimbot/">soft aim guide</a>.',
 				'Aimbot ships alongside <a href="/marathon-esp/">ESP wallhack</a> and <a href="/marathon-radar-hack/">2D radar</a> in the same Marathon Cheats license.',
 				[
 					'Smoothness, FOV, and aim smoothing sliders',
 					'Bone priority and threat-based targeting',
 					'Hotkeys to toggle Aimbot mid-match',
-					'Per-species profile slots for AR / SMG / long-range',
+					'Per-weapon profile slots for AR / SMG / long-range',
 				],
 			),
 			section(
@@ -142,7 +142,7 @@ export const enPages = {
 			),
 			section(
 				'Radar hack and Aimbot controls',
-				'2D radar overlay with directional threat cues, configurable range for rotations and late-session exfils, plus Aimbot smoothness, FOV, bone priority, hotkeys, and per-species profiles.',
+				'2D radar overlay with directional threat cues, configurable range for rotations and late-session exfils, plus Aimbot smoothness, FOV, bone priority, hotkeys, and per-weapon profiles.',
 				'All tools share in-client toggles so you can adjust ESP, radar, and Aimbot during live Marathon runs. See <a href="/marathon-radar-hack/">radar</a> and <a href="/marathon-aimbot/">Aimbot</a> for settings walkthroughs.',
 				'Prefer a menu-first workflow? The <a href="/marathon-cheats/">mod menu page</a> explains mid-match toggles without alt-tabbing.',
 			),
@@ -241,7 +241,7 @@ export const enPages = {
 			),
 			section(
 				'What maintenance entries cover',
-				'Entries note BattlEye compatibility status, rebuilt ESP wallhack overlays, radar range fixes, Aimbot tuning after species balance changes, and digital delivery of new builds to active licenses.',
+				'Entries note BattlEye compatibility status, rebuilt ESP wallhack overlays, radar range fixes, Aimbot tuning after weapon balance changes, and digital delivery of new builds to active licenses.',
 				'Lifetime and monthly subscribers receive rebuild access during active license terms. See <a href="/pricing/">Pricing</a> if you need to renew.',
 				'For context on why rebuilds happen, read the <a href="/updates/">BattlEye bypass guide</a> and <a href="/marathon-cheats/">undetected marathon cheats</a> explainer.',
 			),
@@ -401,7 +401,7 @@ export const enPages = {
 			section(
 				'Why radar hack matters in Marathon',
 				'survival pushs happen across open terrain — hills, forests, and river banks. A 2D radar overlay shows nearby player threats outside direct line of sight so you can reposition before a third player.',
-				'Marathon Cheats radar complements <a href="/marathon-esp/">ESP wallhack</a> markers during pack pushes and nest zone fights.',
+				'Marathon Cheats radar complements <a href="/marathon-esp/">ESP wallhack</a> markers during squad pushes and exfil zone fights.',
 				`Mode rules and seasonal changes come from ${EXT.marathon}. Radar range remains configurable when map scale or mobility meta shifts.`,
 			),
 			section(
@@ -507,7 +507,7 @@ export const enPages = {
 				'How this Marathon Cheats pillar fits nearby pages',
 				'Use this pillar for the core product overview. For year-specific buying notes, see the <a href="/marathon-cheats/">marathon cheats 2026</a> and <a href="/marathon-cheats/">marathon cheats</a> pages cover buyer comparisons in cheats wording.',
 				'Deep-dive modules: <a href="/marathon-esp/">Marathon ESP</a>, <a href="/marathon-aimbot/">Marathon Aimbot</a>, <a href="/marathon-esp/">wallhack</a>, <a href="/marathon-radar-hack/">radar hack</a>, and <a href="/marathon-aimbot/">soft aim</a>.',
-				'Blog guides expand BattlEye keyword: <a href="/blog/marathon-hacks-complete-guide-2026/">hacks complete guide</a>, <a href="/blog/marathon-hacks-buyers-guide/">cheats buyers guide</a>, and <a href="/blog/undetected-marathon-cheats-eac/">undetected BattlEye notes</a>.',
+				'Blog guides expand BattlEye keyword: <a href="/blog/marathon-hacks-complete-guide-2026/">hacks complete guide</a>, <a href="/blog/marathon-hacks-buyers-guide/">cheats buyers guide</a>, and <a href="/blog/undetected-marathon-cheats-battleye/">undetected BattlEye notes</a>.',
 			),
 			section(
 				'marathon cheats vs single-feature tools',
@@ -572,7 +572,7 @@ export const enPages = {
 			section(
 				'What a Marathon mod menu controls',
 				'A Marathon mod menu is the in-client panel where you enable ESP wallhack overlays, adjust radar range, and switch Aimbot profiles during live matches. Marathon Cheats keeps those toggles accessible with hotkeys.',
-				'Toggle player outlines, loot markers, vehicle cues, and per-species Aimbot settings without alt-tabbing out of Marathon.',
+				'Toggle player outlines, loot markers, vehicle cues, and per-weapon Aimbot settings without alt-tabbing out of Marathon.',
 				'Control deep-dives: <a href="/marathon-esp/">ESP</a>, <a href="/marathon-aimbot/">Aimbot</a>, <a href="/marathon-radar-hack/">radar</a>.',
 			),
 			section(
@@ -610,7 +610,7 @@ export const enPages = {
 			),
 			section(
 				'Soft aim profiles per weapon',
-				'Save separate soft aim profiles for carnivores, ambush builds, and long-range species. Switch between long-range ambush pushs and close pack fights with hotkeys mid-session.',
+				'Save separate soft aim profiles for AR, SMG, and DMR loadouts. Switch between long-range ambush pushs and close squad fights with hotkeys mid-session.',
 				`Weapon kill speeds shift with ${EXT.marathon} balance patches — retune smoothness after major combat updates.`,
 				'Soft aim ships alongside <a href="/marathon-esp/">ESP wallhack</a> and <a href="/marathon-radar-hack/">2D radar</a> overlays.',
 			),
@@ -661,7 +661,7 @@ export const enPages = {
 			'Marathon Aimbot hack with soft aim for Windows PC. FOV, bone priority, and hotkeys — bundled with ESP boxes in our Marathon Cheats package.',
 		h1: 'Marathon Aimbot Hack — Soft Aim Assist',
 		intro:
-			'Marathon Aimbot hack tools for Marathon — smoothness, FOV, bone priority, per-species profiles, and hotkey toggles bundled with ESP wallhack and radar in one undetected license.',
+			'Marathon Aimbot hack tools for Marathon — smoothness, FOV, bone priority, per-weapon profiles, and hotkey toggles bundled with ESP wallhack and radar in one undetected license.',
 		imageAlt: "Marathon Aimbot hack controls and bone priority",
 		galleryTitle: 'Marathon Aimbot hack gallery',
 		ctaPrimary: 'Buy Marathon Cheats',
@@ -677,8 +677,8 @@ export const enPages = {
 			section(
 				'Aimbot hack controls and hotkeys',
 				'Bone priority options cover head, chest, or dynamic targets. Hotkeys enable or disable aimbot hack mid-match without opening menus during rotations or late-session exfils.',
-				'Per-species profile slots separate long-range AR tuning from close-quarters SMG settings.',
-				`Balance patches from ${EXT.marathon} can change ideal FOV — retune after major species balance updates.`,
+				'Per-weapon profile slots separate long-range AR tuning from close-quarters SMG settings.',
+				`Balance patches from ${EXT.marathon} can change ideal FOV — retune after major weapon balance updates.`,
 			),
 			section(
 				'Undetected aimbot hack maintenance',
@@ -736,7 +736,7 @@ export const enPages = {
 		sections: [
 			section(
 				'What Marathon unlock-all usually means',
-				'Marathon unlock-all searches often refer to instant access to loadouts, skins, or growth tiers. Those claims differ from visibility and combat-assist tools like ESP wallhack and Aimbot.',
+				'Marathon unlock-all searches often refer to instant access to loadouts, skins, or premium gear. Those claims differ from visibility and combat-assist tools like ESP wallhack and Aimbot.',
 				'Marathon Cheats focuses on in-match awareness — player ESP, loot markers, radar overlays, and configurable Aimbot — not account-wide cosmetic unlocks.',
 				`Cosmetics and patch cycle progression items are sold through ${EXT.marathon}. Be wary of unlock-all downloads that promise free skins — they are often scams.`,
 			),

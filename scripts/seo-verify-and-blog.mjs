@@ -1,8 +1,16 @@
 #!/usr/bin/env node
+/**
+ * SEO verify: leftover Fortnite/Warzone copy + Isle/The Isle leaks in blog and EN pages.
+ * Auto-fixes known patterns, then exits 1 if banned terms remain.
+ */
 import { readFileSync, writeFileSync } from 'node:fs';
+import { applyIsleReplacements, findIsleLeaks } from './isle-blog-guard.mjs';
 
-const pages = readFileSync('scripts/i18n-data/pages-en.mjs', 'utf8');
-const bad = [
+const BLOG_PATH = 'src/data/blog/posts.generated.ts';
+const PAGES_EN = 'scripts/i18n-data/pages-en.mjs';
+const CONTENT_GEN = 'src/data/i18n/content.generated.ts';
+
+const FORTNITE_BAD = [
 	'supply-drop',
 	'BR-critical',
 	'BR loop',
@@ -20,17 +28,39 @@ const bad = [
 	'marathon-esp-hack',
 	'marathon-aimbot-hack',
 ];
-console.log('--- pages-en leftovers ---');
-for (const b of bad) {
-	const n = pages.split(b).length - 1;
-	if (n) console.log(`${b}: ${n}`);
+
+function scan(label, text, patterns) {
+	console.log(`--- ${label} ---`);
+	let found = 0;
+	for (const b of patterns) {
+		const n = text.split(b).length - 1;
+		if (n) {
+			console.log(`${b}: ${n}`);
+			found += n;
+		}
+	}
+	return found;
 }
 
-const gen = readFileSync('src/data/i18n/content.generated.ts', 'utf8');
+function scanIsle(label, text) {
+	const hits = findIsleLeaks(text, label);
+	if (hits.length) {
+		console.log(`--- ${label} Isle leaks (${hits.length}) ---`);
+		for (const h of hits.slice(0, 30)) console.log(`  ${h.match} (${h.pattern})`);
+		if (hits.length > 30) console.log(`  ... and ${hits.length - 30} more`);
+	}
+	return hits;
+}
+
+// --- pages-en ---
+const pagesRaw = readFileSync(PAGES_EN, 'utf8');
+scan('pages-en Fortnite leftovers', pagesRaw, FORTNITE_BAD);
+
+// --- EN generated slice ---
+const gen = readFileSync(CONTENT_GEN, 'utf8');
 const enEnd = gen.indexOf('\n\t\tes:');
-const en = enEnd > 0 ? gen.slice(0, enEnd) : gen.slice(0, 120000);
-console.log('--- EN generated leftovers ---');
-for (const b of [
+const enSlice = enEnd > 0 ? gen.slice(0, enEnd) : gen.slice(0, 120000);
+scan('EN generated Fortnite leftovers', enSlice, [
 	'supply-drop',
 	'BR-critical',
 	'full BR',
@@ -41,14 +71,12 @@ for (const b of [
 	'soft aim, and .',
 	'best-marathon-cheats',
 	'marathon-esp-hack',
-]) {
-	const n = en.split(b).length - 1;
-	if (n) console.log(`${b}: ${n}`);
-}
+]);
 
-const blog = readFileSync('src/data/blog/posts.generated.ts', 'utf8');
-const reps = [
-	['V-Bucks', 'growth points'],
+// --- blog auto-fix ---
+let blog = readFileSync(BLOG_PATH, 'utf8');
+const blogReps = [
+	['V-Bucks', 'credits'],
 	['Item Shop', 'in-game store'],
 	['Battle Pass', 'patch cycle progression'],
 	['FNCS', 'Marathon community event'],
@@ -57,11 +85,11 @@ const reps = [
 	['island codes', 'practice server runs maps'],
 	['Creative 1v1s', 'aim training'],
 	['creative 1v1s', 'aim training'],
-	['Epic health', 'Battlestate status'],
+	['Epic health', 'Bungie server status'],
 	['Epic terms', 'Bungie terms'],
 	["Epic's BattlEye", 'BattlEye'],
 	['Epic patch', 'Marathon patch'],
-	['EliteFN', 'a Fortnite cheat shop'],
+	['EliteFN', 'a budget cheat shop'],
 	['GhostWare', 'a slim cheat vendor'],
 	['CheatVault', 'another cheat shop'],
 	['/marathon-aimbot-hack/', '/marathon-aimbot/'],
@@ -72,13 +100,26 @@ const reps = [
 	['ranked grinders', 'session grinders'],
 	['before Ranked', 'before a run'],
 ];
-let s = blog;
-let n = 0;
-for (const [a, b] of reps) {
-	if (s.includes(a)) {
-		s = s.split(a).join(b);
-		n += 1;
+let blogFixCount = 0;
+for (const [a, b] of blogReps) {
+	if (blog.includes(a)) {
+		blog = blog.split(a).join(b);
+		blogFixCount += 1;
 	}
 }
-writeFileSync('src/data/blog/posts.generated.ts', s);
-console.log('blog patterns fixed:', n);
+blog = applyIsleReplacements(blog);
+writeFileSync(BLOG_PATH, blog);
+console.log(`blog patterns fixed: ${blogFixCount} (+ Isle replacements)`);
+
+// --- final Isle scan (fail build if leaks remain) ---
+const blogHits = scanIsle('blog', blog);
+const pagesHits = scanIsle('pages-en', pagesRaw);
+const enHits = scanIsle('EN generated', enSlice);
+
+const allHits = [...blogHits, ...pagesHits, ...enHits];
+if (allHits.length) {
+	console.error(`\nFAIL: ${allHits.length} Isle/off-topic term(s) remain in published copy.`);
+	process.exit(1);
+}
+
+console.log('\nOK: no Isle leaks or banned off-topic patterns in blog / EN pages.');
