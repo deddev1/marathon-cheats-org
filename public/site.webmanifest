@@ -4,8 +4,8 @@
   "description": "Undetected marathon cheats — ESP, aimbot, and radar for PC",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0c10",
-  "theme_color": "#0a0c10",
+  "background_color": "#070B10",
+  "theme_color": "#070B10",
   "icons": [
     {
       "src": "/favicon.png",
