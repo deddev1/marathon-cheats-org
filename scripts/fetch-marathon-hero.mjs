@@ -3,12 +3,12 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const HERO_URL =
-	'https://boqgsoiwnpbisvrxulbe.supabase.co/storage/v1/object/public/marathonimages/ChatGPT%20Image%20Aug%2015,%202026,%2009_04_18%20AM.png';
+	'https://boqgsoiwnpbisvrxulbe.supabase.co/storage/v1/object/public/marathon/Screenshot%202026-08-19%20174006.png';
 const imagesDir = path.resolve('public/images');
 const HERO_WEBP = { quality: 82, effort: 6, smartSubsample: true };
 
-/** Match homepage hero bar — same wide banner ratio as before (3.15:1). */
-const BANNER_RATIO = 3.15;
+/** Match homepage hero bar — preserve source aspect ratio (~2.67:1). */
+const BANNER_RATIO = 769 / 288;
 
 const heroBuffer = Buffer.from(
 	await fetch(HERO_URL, {
@@ -23,7 +23,7 @@ function bannerHeight(width) {
 	return Math.round(width / BANNER_RATIO);
 }
 
-for (const width of [640, 1024]) {
+for (const width of [640, 1024, 1536]) {
 	const height = bannerHeight(width);
 	const webp = await sharp(heroBuffer)
 		.resize(width, height, { fit: 'cover', position: 'centre' })
