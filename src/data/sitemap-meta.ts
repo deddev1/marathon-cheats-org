@@ -58,7 +58,7 @@ export function latestPageLastmod(): string {
 
 /**
  * Expected URL counts for sitemap validation.
- * Product pages = all PageIds minus cannibal 301 targets (11) → 14.
+ * Product pages = all PageIds minus cannibal 301 targets (12) → 13.
  */
 export const SITEMAP_COUNTS = {
 	englishPages: 13,

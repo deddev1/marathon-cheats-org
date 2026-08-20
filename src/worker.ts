@@ -103,11 +103,13 @@ export default {
 		if (hostRedirect) return hostRedirect;
 
 		if (isBrandStudioPath(url.pathname)) {
-			const notFoundUrl = new URL('/404.html', url.origin);
-			const notFound = await env.ASSETS.fetch(new Request(notFoundUrl, request));
-			const headers = new Headers(notFound.headers);
-			applySecurityHeaders(headers, { html: true });
-			return new Response(notFound.body, { status: 200, headers });
+			const headers = new Headers({
+				'Content-Type': 'text/plain; charset=utf-8',
+				'Cache-Control': 'no-store',
+				'X-Robots-Tag': 'noindex, nofollow',
+			});
+			applySecurityHeaders(headers, { html: false });
+			return new Response('Not Found', { status: 404, headers });
 		}
 
 		const pathRedirect = resolvePathRedirect(url.pathname);

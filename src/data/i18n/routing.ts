@@ -676,10 +676,11 @@ export const localizedSlugs: Record<PageId, Record<LocaleCode, string>> = {
 export const pageIds = Object.keys(englishPaths) as PageId[];
 
 export function getLocalizedPath(pageId: PageId, locale: LocaleCode): string {
+	const resolved = (isCannibalPageId(pageId) ? getCannibalTargetId(pageId) : pageId) as PageId;
 	if (locale === defaultLocale) {
-		return englishPaths[pageId];
+		return englishPaths[resolved];
 	}
-	const slug = localizedSlugs[pageId][locale];
+	const slug = localizedSlugs[resolved][locale];
 	return slug ? `/${locale}/${slug}/` : `/${locale}/`;
 }
 
@@ -690,9 +691,6 @@ export function localizeInternalHref(href: string, locale: LocaleCode): string {
 	}
 	const trimmed = href.replace(/\/+$/, '') || '/';
 	const withSlash = trimmed === '/' ? '/' : `${trimmed}/`;
-	if (withSlash === '/marathon-cheats/' || withSlash === '/the-isle-hacks/' || withSlash === '/isle-hacks/') {
-		return getLocalizedPath('hacks', locale);
-	}
 	for (const pageId of pageIds) {
 		const english = englishPaths[pageId];
 		if (english === withSlash || english.replace(/\/+$/, '') === trimmed) {
@@ -862,7 +860,7 @@ export function localeFromAcceptLanguage(header: string | null): LocaleCode {
 export function getNavForLocale(locale: LocaleCode, labels: Record<string, string>) {
 	const items: { label: string; href: string; pageId?: PageId }[] = [
 		{ label: labels.home, href: getLocalizedPath('home', locale), pageId: 'home' },
-	{ label: labels.hacks ?? 'Hacks', href: getLocalizedPath('hacks', locale), pageId: 'hacks' },
+	{ label: labels.hacks ?? 'Hacks', href: getLocalizedPath('home', locale), pageId: 'home' },
 		{ label: labels.aimbot, href: getLocalizedPath('marathon-aimbot', locale), pageId: 'marathon-aimbot' },
 		{ label: labels.esp, href: getLocalizedPath('marathon-esp', locale), pageId: 'marathon-esp' },
 		{ label: 'Blog', href: locale === defaultLocale ? '/blog/' : `/${locale}/blog/` },

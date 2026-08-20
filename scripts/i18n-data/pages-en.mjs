@@ -122,7 +122,7 @@ export const enPages = {
 		],
 	},
 	features: {
-		title: 'Marathon Cheats Features | ESP, Soft Aim & RadarRadar',
+		title: 'Marathon Cheats Features | ESP, Soft Aim & Radar',
 		description:
 			'Full marathon cheats feature list: ESP boxes, soft aim, radar, and toggles for Windows PC. Review controls before checkout.',
 		h1: 'Marathon Cheats Features — Full Control List',
@@ -254,7 +254,7 @@ export const enPages = {
 		],
 	},
 	faq: {
-		title: 'Marathon Cheats FAQ | ESP, Soft Aim & RadarRadar Answers',
+		title: 'Marathon Cheats FAQ | ESP, Soft Aim & Radar Answers',
 		description:
 			'marathon cheats FAQ: ESP boxes, soft aim, BattlEye maintenance, and pricing for PC. Clear answers before you buy.',
 		h1: 'Marathon Cheats FAQ — Common Questions',
@@ -455,7 +455,7 @@ export const enPages = {
 		title: 'Marathon Cheats 2026 | ESP Soft Aim & Radar',
 		description:
 			'Best marathon cheats 2026: ESP boxes, soft aim, and radar for Windows PC. Undetected marathon cheats with BattlEye maintenance — compare and buy.',
-		h1: 'Marathon Cheats 2026 — ESP, Soft Aim & RadarRadar',
+		h1: 'Marathon Cheats 2026 — ESP, Soft Aim & Radar',
 		intro:
 			'The 2026 Marathon Cheats package for Marathon — undetected ESP wallhack, radar hack, and Aimbot with BattlEye maintenance, instant delivery, and Windows PC support.',
 		imageAlt: "Marathon Cheats product overview for Marathon",

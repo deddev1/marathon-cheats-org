@@ -95,9 +95,6 @@ const monthly = productInfo.plans.find((p) => p.id === 'monthly') ?? productInfo
 const lifetime = productInfo.plans.find((p) => p.id === 'lifetime') ?? productInfo.plans[1];
 const showStorePlans = pageId === 'pricing' && locale === 'en';
 
-/** Only set when the default product title would duplicate the page H1. */
-const eyebrow =
-	pageId === 'hacks' && locale === 'en' ? t('nav.preview') : undefined;
 ---
 
 <PageLayout
@@ -107,7 +104,6 @@ const eyebrow =
 	heading={heading}
 	intro={intro}
 	introEdit={introEdit}
-	eyebrow={eyebrow}
 	heroImage={crawl.src}
 	heroAlt={page.imageAlt || crawl.caption}
 	gallery={gallery}

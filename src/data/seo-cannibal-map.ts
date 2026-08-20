@@ -3,6 +3,8 @@
  * Kept free of routing imports to avoid circular deps with localizeInternalHref.
  */
 export const cannibalRedirectTargets = {
+	/** Retired hacks pillar — homepage is the money URL for "marathon cheats". */
+	hacks: 'home',
 	'best-cheats': 'home',
 	'cheats-2026': 'home',
 	undetected: 'home',
