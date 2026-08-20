@@ -4,7 +4,7 @@ import I18nProvider from './I18nProvider';
 
 const PREVIEW_VIDEO_SRC =
 	'https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/ef/0510%282%29.mp4';
-const PREVIEW_POSTER = '/images/marathon-cheats-hero-1024w.webp';
+const PREVIEW_POSTER = '/images/marathon-preview-video-poster.webp';
 
 type Props = {
 	locale: string;
@@ -12,18 +12,26 @@ type Props = {
 
 function HomeAboutVideo() {
 	const videoRef = useRef<HTMLVideoElement>(null);
-	const [active, setActive] = useState(false);
+	const [started, setStarted] = useState(false);
+	const [error, setError] = useState(false);
 
-	const play = useCallback(() => {
-		setActive(true);
-		requestAnimationFrame(() => {
-			const video = videoRef.current;
-			if (!video) return;
-			video.src = PREVIEW_VIDEO_SRC;
-			void video.play().catch(() => {
-				// Autoplay blocked — controls remain available after click.
-			});
-		});
+	const play = useCallback(async () => {
+		const video = videoRef.current;
+		if (!video) return;
+
+		setStarted(true);
+		setError(false);
+
+		try {
+			if (!video.src || !video.src.includes('0510')) {
+				video.src = PREVIEW_VIDEO_SRC;
+			}
+			video.load();
+			await video.play();
+		} catch {
+			// Autoplay policies — controls stay visible so the user can press play.
+			setError(false);
+		}
 	}, []);
 
 	return (
@@ -31,20 +39,21 @@ function HomeAboutVideo() {
 			<video
 				ref={videoRef}
 				className="home__about-video"
-				controls={active}
+				controls={started}
 				playsInline
 				preload="none"
 				poster={PREVIEW_POSTER}
 				width={640}
 				height={360}
+				onError={() => setError(true)}
 			>
-				<track kind="captions" />
+				Your browser does not support embedded video playback.
 			</video>
-			{!active ? (
+			{!started ? (
 				<button
 					type="button"
 					className="home__about-video-play"
-					onClick={play}
+					onClick={() => void play()}
 					aria-label="Play Marathon Cheats preview video"
 				>
 					<span className="home__about-video-play-icon" aria-hidden="true">
@@ -60,6 +69,14 @@ function HomeAboutVideo() {
 					</span>
 					<span className="home__about-video-play-label">Watch preview</span>
 				</button>
+			) : null}
+			{error ? (
+				<p className="home__about-video-error" role="status">
+					Video could not load.{' '}
+					<a href={PREVIEW_VIDEO_SRC} target="_blank" rel="noopener noreferrer">
+						Open in new tab
+					</a>
+				</p>
 			) : null}
 		</div>
 	);
